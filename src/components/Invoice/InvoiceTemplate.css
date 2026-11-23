@@ -1,0 +1,84 @@
+.invoice-print-root{font-family:Inter,"Segoe UI","Helvetica Neue",Arial,sans-serif;background:#eef0f3;padding:18px;color:#262626}.invoice-sheet{width:1024px;min-height:1518px;margin:auto;background:#fff;border:1px solid #333;box-sizing:border-box;box-shadow:0 8px 28px #0002;overflow:hidden}.invoice-title-bar{font-family:Inter,"Segoe UI","Helvetica Neue",Arial,sans-serif;height:88px;display:flex;align-items:center;justify-content:center;border-bottom:2px solid #333;color:#b33520;font-size:61px;font-weight:800;letter-spacing:8px}.invoice-company{height:282px;display:flex;justify-content:space-between;padding:34px 36px 18px}.invoice-company-copy h1{font-size:24px;color:#b33520;margin:0 0 14px;letter-spacing:.6px}.company-row{display:flex;gap:14px;font-size:18px;line-height:1.5;margin:4px 0}.company-row span{width:17px;text-align:center}.invoice-brand{width:330px;display:flex;justify-content:center;align-items:center}.invoice-brand>img{max-width:310px;max-height:155px;object-fit:contain}.logo-fallback{display:grid;grid-template-columns:auto auto auto;align-items:center;column-gap:6px;color:#85160f}.logo-fallback strong,.logo-fallback em{grid-column:1/4;text-align:center}.logo-fallback strong{font-size:58px;letter-spacing:4px;line-height:.9}.logo-fallback em{font-size:36px;letter-spacing:4px;font-style:normal}.logo-fallback span{border:3px solid #85160f;border-radius:50%;padding:8px;font-size:20px}.invoice-rule{height:2px;background:#c64a36;margin:0 20px}.invoice-address-grid{display:grid;grid-template-columns:1.1fr 1.1fr .8fr;gap:32px;padding:27px 42px 30px;min-height:145px}.invoice-address-grid h3,.payment-instructions h3{color:#b33520;font-size:17px;letter-spacing:.6px;margin:0 0 15px}.invoice-address-grid b{font-size:17px}.invoice-address-grid p{font-size:17px;margin:10px 0}.invoice-meta p{margin:0 0 18px}.invoice-items{border-collapse:collapse;width:calc(100% - 70px);margin:0 35px;font-size:18px}.invoice-items th{background:linear-gradient(90deg,#b82f1d,#eb331d);color:#fff;height:43px;border:1px solid #444}.invoice-items td{border-left:1px solid #555;border-right:1px solid #555;padding:11px 12px}.invoice-items td:nth-child(1),.invoice-items td:nth-child(3),.invoice-items td:nth-child(4),.invoice-items td:nth-child(5){text-align:center}.invoice-items th:nth-child(1){width:55px}.invoice-items th:nth-child(2){text-align:left}.invoice-items th:nth-child(3){width:80px}.invoice-items th:nth-child(4),.invoice-items th:nth-child(5){width:160px}.invoice-items tbody tr:last-child td{border-bottom:1px solid #777}.invoice-lower{width:calc(100% - 70px);margin:0 35px;display:grid;grid-template-columns:1.25fr 1.08fr;border:1px solid #777;border-top:0;min-height:330px}.invoice-declaration{align-self:center;text-align:center;font-size:18px;line-height:1.45;padding:40px}.invoice-totals{border-left:1px solid #777}.invoice-totals>div{display:grid;grid-template-columns:1.4fr .85fr;min-height:45px;align-items:center}.invoice-totals span{text-align:right;padding-right:38px;font-weight:600;font-size:18px}.invoice-totals b{text-align:center;font-size:18px;font-weight:500}.invoice-totals .dotted{border-top:1px dashed #999;border-bottom:1px dashed #999}.invoice-totals .paid-total{border-top:1px solid #777;background:linear-gradient(90deg,#fff,#a9c0d9)}.invoice-totals .paid-total span,.invoice-totals .paid-total b{font-size:20px;font-weight:800}.invoice-words{width:calc(100% - 70px);margin:auto;padding:14px 8px 17px;font-size:17px}.invoice-bottom-rule{height:1px;background:#999;width:calc(100% - 70px);margin:auto}.invoice-footer{display:grid;grid-template-columns:1fr .85fr 1.1fr;gap:20px;align-items:center;padding:23px 42px 8px;min-height:270px}.payment-instructions p{font-size:16px;margin:10px 0}.invoice-qr{display:block;width:116px;height:116px;object-fit:contain;border:1px solid #b41f43;padding:4px;background:#fff;image-rendering:auto}.paid-stamp{width:166px;height:166px;border:4px solid #397455;border-radius:50%;color:#397455;justify-self:center;position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;transform:rotate(-7deg);font-weight:800}.paid-stamp:before{content:"";position:absolute;inset:9px;border:2px dashed #397455;border-radius:50%}.stamp-ring{position:absolute;top:15px;font-size:13px;letter-spacing:2px}.stamp-bar{z-index:2;width:190px;height:58px;border:4px solid #397455;border-radius:7px;background:#fff;display:flex;align-items:center;justify-content:center;font-size:42px;letter-spacing:2px}.stamp-bottom{position:absolute;bottom:18px;font-size:12px;letter-spacing:2px}.invoice-sign{text-align:center;display:flex;flex-direction:column;gap:7px;color:#273047;font-size:17px}.signature-image{width:220px;height:70px;object-fit:contain;margin:4px auto 0}.signature-fallback{font-family:cursive;font-size:30px;color:#23387a;transform:rotate(-7deg);margin:5px 0}.invoice-sign hr{width:90%;border:0;border-top:1px dashed #aaa;margin:17px auto 4px}.invoice-sign span{font-size:16px;color:#333}.thank-you{display:flex;align-items:center;gap:18px;padding:4px 24px 28px}.thank-you span{height:2px;background:#d55b48;flex:1}.thank-you em{font-family:Georgia,"Times New Roman",serif;color:#c43b22;font-size:34px;font-weight:500}.thank-you-image{max-width:240px;max-height:58px;object-fit:contain}@page{size:A4 portrait;margin:0}@media print{body{margin:0;background:#fff}.invoice-print-root{padding:0;background:#fff}.invoice-sheet{box-shadow:none;border:0;width:100%;min-height:auto}.invoice-title-bar{height:74px;font-size:47px}.invoice-company{height:215px;padding:25px 30px 12px}.invoice-company-copy h1{font-size:18px}.company-row{font-size:14px}.invoice-brand{width:260px}.invoice-brand>img{max-width:250px;max-height:125px}.invoice-address-grid{padding:20px 34px;gap:20px}.invoice-address-grid h3{font-size:14px}.invoice-address-grid b,.invoice-address-grid p,.invoice-meta b{font-size:14px}.invoice-items{font-size:14px}.invoice-items th{height:35px}.invoice-items td{padding:8px}.invoice-lower{min-height:245px}.invoice-declaration{font-size:14px}.invoice-totals>div{min-height:34px}.invoice-totals span,.invoice-totals b{font-size:14px}.invoice-footer{min-height:190px;padding:18px 38px 5px}.payment-instructions h3{font-size:14px}.payment-instructions p{font-size:13px;margin:7px 0}.invoice-qr{width:90px;height:90px}.paid-stamp{transform:scale(.75) rotate(-7deg)}.invoice-sign{font-size:14px}.signature-image{width:170px;height:56px}.thank-you{padding-bottom:18px}.thank-you em{font-size:28px}}
+
+
+/* ================================================================
+   PDF MODE — used by printInvoice.js. This keeps the entire invoice
+   on one A4 page before html2canvas captures it.
+   ================================================================ */
+.invoice-pdf-mode .invoice-print-root{padding:0;background:#fff;width:794px}
+.invoice-pdf-mode .invoice-sheet{width:794px;min-height:1123px;height:1123px;margin:0;border:0;box-shadow:none;overflow:hidden}
+.invoice-pdf-mode .invoice-title-bar{height:58px;font-size:40px;letter-spacing:6px}
+.invoice-pdf-mode .invoice-company{height:168px;padding:19px 25px 8px}
+.invoice-pdf-mode .invoice-company-copy h1{font-size:17px;margin-bottom:8px}
+.invoice-pdf-mode .company-row{font-size:12px;line-height:1.35;margin:3px 0;gap:8px}
+.invoice-pdf-mode .company-row span{width:13px}
+.invoice-pdf-mode .invoice-brand{width:215px}
+.invoice-pdf-mode .invoice-brand>img{max-width:205px;max-height:105px}
+.invoice-pdf-mode .logo-fallback strong{font-size:42px}
+.invoice-pdf-mode .logo-fallback em{font-size:25px}
+.invoice-pdf-mode .invoice-rule{margin:0 15px}
+.invoice-pdf-mode .invoice-address-grid{padding:14px 26px 16px;gap:14px;min-height:90px}
+.invoice-pdf-mode .invoice-address-grid h3,.invoice-pdf-mode .payment-instructions h3{font-size:12px;margin-bottom:8px}
+.invoice-pdf-mode .invoice-address-grid b,.invoice-pdf-mode .invoice-address-grid p,.invoice-pdf-mode .invoice-meta b{font-size:11px}
+.invoice-pdf-mode .invoice-address-grid p{margin:5px 0}
+.invoice-pdf-mode .invoice-meta p{margin:0 0 7px}
+.invoice-pdf-mode .invoice-items{width:calc(100% - 50px);margin:0 25px;font-size:11px}
+.invoice-pdf-mode .invoice-items th{height:28px}
+.invoice-pdf-mode .invoice-items td{padding:6px 7px}
+.invoice-pdf-mode .invoice-items th:nth-child(1){width:42px}
+.invoice-pdf-mode .invoice-items th:nth-child(3){width:60px}
+.invoice-pdf-mode .invoice-items th:nth-child(4),.invoice-pdf-mode .invoice-items th:nth-child(5){width:120px}
+.invoice-pdf-mode .invoice-lower{width:calc(100% - 50px);margin:0 25px;min-height:170px}
+.invoice-pdf-mode .invoice-declaration{font-size:11px;padding:20px}
+.invoice-pdf-mode .invoice-totals>div{min-height:26px}
+.invoice-pdf-mode .invoice-totals span{padding-right:24px;font-size:11px}
+.invoice-pdf-mode .invoice-totals b{font-size:11px}
+.invoice-pdf-mode .invoice-totals .paid-total span,.invoice-pdf-mode .invoice-totals .paid-total b{font-size:16px}
+.invoice-pdf-mode .invoice-words{width:calc(100% - 50px);padding:8px 5px 10px;font-size:11px}
+.invoice-pdf-mode .invoice-bottom-rule{width:calc(100% - 50px)}
+.invoice-pdf-mode .invoice-footer{grid-template-columns:1fr .78fr 1fr;gap:12px;min-height:155px;padding:13px 28px 4px}
+.invoice-pdf-mode .payment-instructions p{font-size:10px;margin:5px 0}
+.invoice-pdf-mode .invoice-qr{width:68px;height:68px;padding:3px}
+.invoice-pdf-mode .paid-stamp{width:104px;height:104px;border-width:3px}
+.invoice-pdf-mode .paid-stamp:before{inset:6px}
+.invoice-pdf-mode .stamp-ring{top:9px;font-size:8px}
+.invoice-pdf-mode .stamp-bar{width:120px;height:36px;border-width:3px;font-size:25px}
+.invoice-pdf-mode .stamp-bottom{bottom:10px;font-size:8px}
+.invoice-pdf-mode .invoice-sign{font-size:11px;gap:4px}
+.invoice-pdf-mode .signature-image{width:130px;height:42px;margin:2px auto 0}
+.invoice-pdf-mode .signature-fallback{font-size:20px;margin:2px 0}
+.invoice-pdf-mode .invoice-sign hr{margin:8px auto 2px}
+.invoice-pdf-mode .invoice-sign span{font-size:10px}
+.invoice-pdf-mode .thank-you{gap:12px;padding:2px 18px 13px}
+.invoice-pdf-mode .thank-you em{font-size:22px}
+.invoice-pdf-mode .thank-you-image{max-width:160px;max-height:42px}
+/* Preview must remain a single fixed desktop invoice. The editor scales it as one object. */
+.invoice-editor-preview .invoice-sheet{width:1024px;min-height:1518px;height:1518px;overflow:hidden}
+.invoice-editor-preview .invoice-print-root{width:1024px}
+.invoice-paid-image{display:flex;align-items:center;justify-content:center;min-height:166px}
+.invoice-paid-image .thank-you-image{display:block;max-width:190px;max-height:190px;width:auto;height:auto;object-fit:contain}
+.invoice-pdf-mode,.invoice-pdf-mode *{box-sizing:border-box}
+.invoice-pdf-mode .invoice-sheet{height:1123px;min-height:1123px}
+/* Extra styles for the editable invoice form (Items, Bill To, Shipping, totals) */
+.invoice-editor-form textarea,
+.invoice-editor-form select{width:100%;padding:8px 10px;border:1px solid #d5d8dd;border-radius:8px;font:inherit;background:#fff;color:inherit;box-sizing:border-box}
+.invoice-editor-form textarea{resize:vertical}
+.iee-row{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.iee-row3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px}
+.iee-item{border:1px solid #d5d8dd;border-radius:10px;padding:10px;margin:8px 0}
+.iee-item-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px}
+.iee-icon-btn{border:1px solid #e0b4b4;background:#fff5f5;color:#c0392b;border-radius:6px;padding:4px 8px;cursor:pointer}
+.iee-icon-btn:disabled{opacity:.4;cursor:not-allowed}
+.iee-add-btn{display:inline-flex;align-items:center;gap:6px;margin:6px 0 10px;padding:8px 12px;border:1px dashed #e74c3c;background:#fff;color:#e74c3c;border-radius:8px;cursor:pointer;font-weight:600}
+.iee-save-btn{display:inline-flex;align-items:center;gap:6px;padding:9px 14px;border:1px solid #d5d8dd;background:#fff;color:#222;border-radius:8px;cursor:pointer;font-weight:600}
+.iee-save-btn:disabled{opacity:.5;cursor:not-allowed}
+.iee-check{display:flex;align-items:center;gap:8px}
+.iee-check input{width:auto}
+.iee-readonly{background:#f6f7f9;border-radius:10px;padding:10px;margin-top:8px}
+.iee-readonly div{display:flex;justify-content:space-between;padding:2px 0}
+.iee-readonly small{display:block;margin-top:6px;color:#666}
+.iee-notice{margin:12px 0;padding:10px 12px;border-radius:8px;font-weight:600}
+.iee-notice.ok{background:#e7f7ec;color:#1e7a3c}
+.iee-notice.err{background:#fdecec;color:#b3261e}
+.iee-state{padding:40px;text-align:center}
+.iee-state.iee-err{color:#b3261e}

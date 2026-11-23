@@ -1,0 +1,1988 @@
+/* -------------------------------------------------------------------------- */
+/* LEADS.CSS — Complete styles for the Leads module                           */
+/* Includes district grid, district detail view, modals, and all components   */
+/* -------------------------------------------------------------------------- */
+
+/* ---------- Root variables (assumed defined globally, but safe fallback) --- */
+:root {
+  --primary: #7b1113;
+  --primary-dark: #5c0d0e;
+  --primary-pale: #fdf2f2;
+  --white: #ffffff;
+  --text-dark: #111827;
+  --text-mid: #4b5563;
+  --text-light: #9ca3af;
+  --border: #e5e7eb;
+  --card-shadow: 0 1px 3px rgba(0, 0, 0, 0.06), 0 1px 2px rgba(0, 0, 0, 0.04);
+}
+
+/* ---------- Page Layout ---------- */
+.leads-page {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  min-height: calc(100vh - 78px);
+  padding: 0 0 12px 0;
+}
+
+/* ---------- Header ---------- */
+.leads-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.leads-title {
+  font-size: 22px;
+  font-weight: 800;
+  color: var(--text-dark);
+  margin: 0 0 4px;
+}
+
+.breadcrumb {
+  font-size: 12.5px;
+  color: var(--text-light);
+}
+
+.header-actions {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+/* ---------- Buttons ---------- */
+/* ==========================================================
+   BUTTON STYLES
+========================================================== */
+
+.btn-primary,
+.btn-outline,
+.btn-outline-primary,
+.btn-outline-sm,
+.btn-danger-sm,
+.btn-back {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    font-family: 'Public Sans', sans-serif;
+    font-weight: 600;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: all 0.25s ease;
+}
+
+/* ===========================
+   PRIMARY BUTTON
+=========================== */
+
+.btn-primary {
+    background: var(--primary);
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    padding: 10px 18px;
+    min-height: 42px;
+    font-size: 14px;
+}
+
+.btn-primary:hover {
+    background: var(--primary-dark);
+    transform: translateY(-1px);
+}
+
+/* ===========================
+   OUTLINE BUTTON
+=========================== */
+
+.btn-outline,
+.btn-outline-primary {
+    background: #fff;
+    color: var(--primary);
+    border: 1px solid #d8dee9;
+    border-radius: 8px;
+    padding: 10px 18px;
+    min-height: 42px;
+    font-size: 14px;
+}
+
+.btn-outline:hover,
+.btn-outline-primary:hover {
+    background: #f8fafc;
+    border-color: var(--primary);
+}
+
+/* ===========================
+   SMALL BUTTONS
+=========================== */
+
+.btn-outline-sm,
+.btn-danger-sm,
+.btn-back {
+    padding: 8px 14px;
+    min-height: 36px;
+    border-radius: 7px;
+    font-size: 13px;
+}
+
+.btn-outline-sm {
+    background: #fff;
+    color: var(--primary);
+    border: 1px solid #d8dee9;
+}
+
+.btn-outline-sm:hover {
+    background: #f8fafc;
+}
+
+.btn-danger-sm {
+    background: #dc2626;
+    color: #fff;
+    border: none;
+}
+
+.btn-danger-sm:hover {
+    background: #b91c1c;
+}
+
+.btn-back {
+    background: #fff;
+    border: 1px solid #d8dee9;
+    color: #374151;
+}
+
+.btn-back:hover {
+    background: #f9fafb;
+}
+
+/* ==========================================================
+   BUTTON ICONS (Professional Size)
+========================================================== */
+
+.btn-icon {
+    width: 16px;
+    height: 16px;
+    font-size: 16px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    line-height: 1;
+}
+
+/* Small buttons */
+
+.btn-outline-sm .btn-icon,
+.btn-danger-sm .btn-icon,
+.btn-back .btn-icon {
+    width: 14px;
+    height: 14px;
+    font-size: 14px;
+}
+
+/* Force all SVG icons */
+
+button svg,
+.btn-primary svg,
+.btn-outline svg,
+.btn-outline-primary svg,
+.btn-outline-sm svg,
+.btn-danger-sm svg,
+.btn-back svg {
+    width: 16px !important;
+    height: 16px !important;
+    font-size: 16px !important;
+    flex-shrink: 0;
+    vertical-align: middle;
+}
+
+/* Small button icons */
+
+.btn-outline-sm svg,
+.btn-danger-sm svg,
+.btn-back svg {
+    width: 14px !important;
+    height: 14px !important;
+    font-size: 14px !important;
+}
+
+/* ==========================================================
+   BUTTON LABEL
+========================================================== */
+
+.btn-primary span,
+.btn-outline span,
+.btn-outline-primary span,
+.btn-outline-sm span,
+.btn-back span {
+    display: flex;
+    align-items: center;
+    line-height: 1;
+}
+
+/* ---------- Stats Bar ---------- */
+.stats-bar {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.stat-chip {
+  background: var(--white);
+  border-radius: 10px;
+  padding: 14px 18px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex: 1;
+  min-width: 130px;
+  box-shadow: var(--card-shadow);
+  transition: transform 0.15s;
+}
+.stat-chip:hover { transform: translateY(-2px); }
+
+.stat-chip-icon { font-size: 26px; display: flex; align-items: center; }
+.stat-chip-icon svg { font-size: 26px; }
+.stat-chip-label { font-size: 11px; color: var(--text-light); font-weight: 500; text-transform: uppercase; letter-spacing: 0.4px; }
+.stat-chip-val   { font-size: 22px; font-weight: 800; line-height: 1.1; }
+
+/* ---------- District Search Bar ---------- */
+.district-search-bar {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 10px 16px;
+  box-shadow: var(--card-shadow);
+}
+.district-search-bar .search-ico { font-size: 15px; color: var(--text-light); }
+.district-search-bar .filter-search {
+  flex: 1;
+  border: none;
+  outline: none;
+  font-family: 'Public Sans', sans-serif;
+  font-size: 14px;
+  color: var(--text-dark);
+  background: transparent;
+}
+.district-search-bar .filter-search::placeholder { color: var(--text-light); }
+.district-count-badge {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text-mid);
+  background: var(--primary-pale);
+  padding: 4px 10px;
+  border-radius: 20px;
+  white-space: nowrap;
+}
+
+/* ---------- District Grid (cards) ---------- */
+.district-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
+  gap: 18px;
+}
+
+.district-card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 28px 16px;
+  text-align: center;
+  cursor: pointer;
+  box-shadow: none;
+  transition: transform 0.15s, box-shadow 0.15s, border-color 0.15s;
+  font-family: 'Public Sans', sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  width: 100%;
+}
+.district-card:hover {
+  transform: translateY(-3px);
+  border-color: var(--primary);
+  box-shadow: 0 8px 24px rgba(123, 17, 19, 0.12);
+}
+
+.district-card-icon {
+  width: 56px;
+  height: 56px;
+  border-radius: 12px;
+  background: var(--primary-pale);
+  color: var(--primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+}
+
+.district-card-name {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--text-dark);
+}
+
+.district-card-badge {
+  font-size: 11px;
+  font-weight: 600;
+  padding: 4px 10px;
+  border-radius: 20px;
+  white-space: nowrap;
+}
+.badge-assigned {
+  background: #dcfce7;
+  color: #15803d;
+}
+.badge-unassigned {
+  background: #fef3c7;
+  color: #b45309;
+}
+
+/* ---------- District Detail View ---------- */
+.district-view {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.district-view-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.district-view-title {
+  font-size: 20px;
+  font-weight: 800;
+  color: var(--text-dark);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0;
+  flex: 1;
+}
+
+.btn-back {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 8px 14px;
+  font-family: 'Public Sans', sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-mid);
+  cursor: pointer;
+  transition: border-color 0.15s, color 0.15s;
+}
+.btn-back:hover { border-color: var(--primary); color: var(--primary); }
+
+/* District Summary Bar */
+.district-summary-bar {
+  display: flex;
+  gap: 24px;
+  flex-wrap: wrap;
+  background: var(--white);
+  border-radius: 10px;
+  padding: 14px 20px;
+  box-shadow: var(--card-shadow);
+  border: 1px solid var(--border);
+}
+.ds-item {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.ds-label { font-size: 11px; color: var(--text-light); font-weight: 500; text-transform: uppercase; letter-spacing: 0.3px; }
+.ds-val { font-size: 15px; font-weight: 700; color: var(--text-dark); }
+
+/* ---------- District Actions Grid ---------- */
+.district-actions-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 10px;
+}
+
+.da-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  padding: 14px 8px;
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  cursor: pointer;
+  font-family: 'Public Sans', sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text-mid);
+  transition: border-color 0.15s, background 0.15s, color 0.15s;
+}
+.da-btn:hover:not(:disabled) {
+  border-color: var(--primary);
+  background: var(--primary-pale);
+  color: var(--primary);
+}
+.da-btn:disabled { opacity: 0.4; cursor: not-allowed; }
+.da-icon { font-size: 20px; }
+
+/* ---------- Panel Cards ---------- */
+.panel-card {
+  background: var(--white);
+  border-radius: 12px;
+  padding: 16px 20px;
+  box-shadow: var(--card-shadow);
+  border: 1px solid var(--border);
+}
+
+.panel-title {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--text-dark);
+  margin-bottom: 12px;
+}
+
+/* Timeline Panel */
+.timeline-panel { display: flex; flex-direction: column; gap: 10px; }
+.timeline-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  max-height: 260px;
+  overflow-y: auto;
+  padding-right: 4px;
+}
+.timeline-row {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+}
+.timeline-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--primary);
+  margin-top: 5px;
+  flex-shrink: 0;
+}
+
+/* ---------- Telecaller Panel ---------- */
+.telecaller-panel .tc-detail-card {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+.tc-detail-avatar {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: var(--primary);
+  color: var(--white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+.tc-detail-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.tc-detail-name { font-size: 16px; font-weight: 700; color: var(--text-dark); }
+.tc-detail-row {
+  font-size: 13px;
+  color: var(--text-mid);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.tc-detail-row svg { font-size: 13px; color: var(--text-light); }
+.badge-green-text { color: #15803d; font-weight: 600; }
+
+/* ---------- Leads Table Section ---------- */
+.leads-main {
+  background: var(--white);
+  border-radius: 12px;
+  box-shadow: var(--card-shadow);
+  border: 1px solid var(--border);
+  overflow: hidden;
+  width: 100%;
+}
+
+/* Filter bar */
+.filter-bar {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  padding: 14px 16px;
+  border-bottom: 1px solid var(--border);
+  flex-wrap: wrap;
+}
+
+.search-wrap {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: #f5f5f7;
+  border: 1px solid var(--border);
+  border-radius: 7px;
+  padding: 7px 12px;
+  flex: 1;
+  min-width: 200px;
+}
+.search-ico { font-size: 14px; color: var(--text-light); }
+
+.filter-search {
+  background: none;
+  border: none;
+  outline: none;
+  font-family: 'Public Sans', sans-serif;
+  font-size: 13px;
+  color: var(--text-dark);
+  width: 100%;
+}
+.filter-search::placeholder { color: var(--text-light); }
+
+.filter-select {
+  border: 1px solid var(--border);
+  border-radius: 7px;
+  padding: 7px 10px;
+  font-family: 'Public Sans', sans-serif;
+  font-size: 13px;
+  color: var(--text-dark);
+  background: var(--white);
+  outline: none;
+  cursor: pointer;
+  min-width: 120px;
+}
+.filter-select:focus { border-color: var(--primary); }
+
+/* Table toolbar */
+.table-toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 16px;
+  border-bottom: 1px solid var(--border);
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.total-count { font-size: 13px; color: var(--text-mid); }
+.total-count strong { color: var(--text-dark); font-weight: 700; }
+.toolbar-right { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; }
+
+/* ---------- Table ---------- */
+.table-wrap { overflow-x: auto; }
+
+.leads-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+  min-width: 900px;
+}
+
+.leads-table th {
+  text-align: left;
+  padding: 10px 12px;
+  color: var(--text-light);
+  font-weight: 600;
+  font-size: 11.5px;
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+  border-bottom: 2px solid var(--border);
+  white-space: nowrap;
+  background: #fafafa;
+}
+
+.leads-table td {
+  padding: 10px 12px;
+  border-bottom: 1px solid var(--border);
+  vertical-align: middle;
+  color: var(--text-dark);
+}
+
+.leads-table tbody tr:hover td { background: var(--primary-pale); }
+.leads-table tbody tr.row-selected td { background: #fdf2f2; }
+
+.lead-id    { font-size: 12px; color: var(--text-mid); font-family: monospace; }
+
+/* Dynamic Excel-driven columns: any number of columns can appear here, so
+   each cell is clipped with an ellipsis and shows the full value on hover
+   (via the title attribute) rather than breaking the table layout. */
+.dyn-cell {
+  max-width: 220px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.status-pill {
+  padding: 3px 10px;
+  border-radius: 20px;
+  font-size: 11.5px;
+  font-weight: 600;
+  white-space: nowrap;
+  display: inline-block;
+}
+
+.action-group { display: flex; gap: 4px; align-items: center; }
+.act-btn {
+  background: none;
+  border: none;
+  padding: 4px 6px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background 0.12s;
+  color: var(--text-mid);
+}
+.act-btn:hover { background: var(--primary-pale); color: var(--primary); }
+.act-btn.danger:hover { background: #fee2e2; color: #b91c1c; }
+.act-btn svg { font-size: 14px; }
+
+.empty-row { text-align: center; padding: 36px; color: var(--text-light); font-size: 14px; }
+
+/* ---------- Pagination ---------- */
+.pagination-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 16px;
+  border-top: 1px solid var(--border);
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.rows-select {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  color: var(--text-mid);
+}
+.rows-select select {
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 4px 8px;
+  font-family: 'Public Sans', sans-serif;
+  font-size: 13px;
+  outline: none;
+}
+
+.page-nums { display: flex; gap: 4px; align-items: center; }
+.pg-btn {
+  width: 32px;
+  height: 32px;
+  border-radius: 7px;
+  border: 1px solid var(--border);
+  background: var(--white);
+  font-family: 'Public Sans', sans-serif;
+  font-size: 13px;
+  cursor: pointer;
+  transition: background 0.12s, border-color 0.12s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.pg-btn:hover:not(:disabled) { border-color: var(--primary); color: var(--primary); }
+.pg-btn.active { background: var(--primary); color: var(--white); border-color: var(--primary); font-weight: 700; }
+.pg-btn:disabled { opacity: 0.4; cursor: default; }
+.pg-dots { font-size: 14px; color: var(--text-light); padding: 0 4px; }
+
+/* ---------- Footer ---------- */
+.leads-footer {
+  display: flex;
+  justify-content: space-between;
+  padding: 14px 0 4px;
+  font-size: 12px;
+  color: var(--text-light);
+  border-top: 1px solid var(--border);
+  margin-top: auto;
+}
+
+/* ---------- Modal ---------- */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.38);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(2px);
+}
+
+.modal-box {
+  background: var(--white);
+  border-radius: 14px;
+  width: 90%;
+  max-width: 480px;
+  box-shadow: 0 12px 48px rgba(0, 0, 0, 0.18);
+  overflow: hidden;
+  max-height: 90vh;
+  display: flex;
+  flex-direction: column;
+}
+.modal-wide { max-width: 620px; }
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 20px;
+  border-bottom: 1px solid var(--border);
+  background: var(--primary-pale);
+  flex-shrink: 0;
+}
+
+.modal-title { font-size: 15px; font-weight: 700; color: var(--primary); }
+
+.modal-close {
+  background: none;
+  border: none;
+  font-size: 18px;
+  cursor: pointer;
+  color: var(--text-mid);
+  line-height: 1;
+  transition: color 0.12s;
+}
+.modal-close:hover { color: var(--primary); }
+
+.modal-body {
+  padding: 20px;
+  overflow-y: auto;
+  flex: 1;
+}
+
+/* ---------- Lead Form ---------- */
+.lead-form { display: flex; flex-direction: column; gap: 12px; }
+
+.form-grid-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.form-group label {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text-mid);
+}
+.form-group input,
+.form-group select,
+.form-group textarea {
+  border: 1px solid var(--border);
+  border-radius: 7px;
+  padding: 8px 11px;
+  font-family: 'Public Sans', sans-serif;
+  font-size: 13px;
+  outline: none;
+  transition: border-color 0.15s;
+  width: 100%;
+}
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus { border-color: var(--primary); }
+.form-group textarea {
+  resize: vertical;
+  min-height: 40px;
+}
+.form-group input:disabled {
+  background: #f5f5f7;
+  color: var(--text-light);
+}
+
+.form-actions {
+  display: flex;
+  gap: 10px;
+  justify-content: flex-end;
+  margin-top: 6px;
+}
+/* ==========================================================
+   EDIT LEAD MODAL - FINAL ALIGNMENT FIX
+   ========================================================== */
+
+/* Modal overlay */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 20px;
+  box-sizing: border-box;
+
+  background: rgba(0, 0, 0, 0.45);
+  backdrop-filter: blur(2px);
+}
+
+/* Edit modal */
+.modal-box.modal-wide {
+  width: min(95vw, 1000px);
+  max-width: 1000px;
+  max-height: 90vh;
+
+  margin: 0 auto;
+
+  background: #ffffff;
+  border-radius: 14px;
+
+  display: flex;
+  flex-direction: column;
+
+  overflow: hidden;
+
+  box-sizing: border-box;
+}
+
+/* Modal header */
+.modal-box.modal-wide .modal-header {
+  width: 100%;
+  min-height: 54px;
+
+  padding: 14px 24px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  box-sizing: border-box;
+
+  flex-shrink: 0;
+}
+
+/* Modal body */
+.modal-box.modal-wide .modal-body {
+  width: 100%;
+
+  padding: 20px 30px 24px;
+
+  overflow-y: auto;
+  overflow-x: hidden;
+
+  box-sizing: border-box;
+
+  flex: 1;
+}
+
+/* ==========================================================
+   EDIT FORM
+   ========================================================== */
+
+.modal-box.modal-wide .lead-form {
+  width: 100%;
+
+  display: flex;
+  flex-direction: column;
+
+  gap: 14px;
+
+  box-sizing: border-box;
+}
+
+/* Two-column form */
+.modal-box.modal-wide .form-grid-2 {
+  width: 100%;
+
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+
+  column-gap: 16px;
+  row-gap: 14px;
+
+  box-sizing: border-box;
+}
+
+/* Every form group */
+.modal-box.modal-wide .form-group {
+  width: 100%;
+  min-width: 0;
+
+  display: flex;
+  flex-direction: column;
+
+  gap: 6px;
+
+  box-sizing: border-box;
+}
+
+/* Labels */
+.modal-box.modal-wide .form-group label {
+  width: 100%;
+
+  margin: 0;
+
+  font-size: 13px;
+  line-height: 1.3;
+
+  font-weight: 600;
+  color: #374151;
+
+  text-align: left;
+
+  box-sizing: border-box;
+}
+
+/* Inputs */
+.modal-box.modal-wide .form-group input,
+.modal-box.modal-wide .form-group select,
+.modal-box.modal-wide .form-group textarea {
+  width: 100%;
+  min-width: 0;
+  max-width: 100%;
+
+  height: 48px;
+
+  padding: 0 14px;
+
+  border: 1px solid #d9dee7;
+  border-radius: 8px;
+
+  background: #ffffff;
+
+  font-family: 'Public Sans', sans-serif;
+  font-size: 14px;
+  color: #111827;
+
+  outline: none;
+
+  box-sizing: border-box;
+
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+/* Textarea */
+.modal-box.modal-wide .form-group textarea {
+  height: auto;
+  min-height: 90px;
+
+  padding: 10px 14px;
+
+  resize: vertical;
+}
+
+/* Input focus */
+.modal-box.modal-wide .form-group input:focus,
+.modal-box.modal-wide .form-group select:focus,
+.modal-box.modal-wide .form-group textarea:focus {
+  border-color: var(--primary);
+
+  box-shadow: 0 0 0 3px rgba(123, 17, 19, 0.08);
+}
+
+/* Placeholder */
+.modal-box.modal-wide .form-group input::placeholder,
+.modal-box.modal-wide .form-group textarea::placeholder {
+  color: #9ca3af;
+}
+
+/* Disabled */
+.modal-box.modal-wide .form-group input:disabled,
+.modal-box.modal-wide .form-group select:disabled {
+  background: #f5f6f8;
+  color: #9ca3af;
+  cursor: not-allowed;
+}
+
+/* ==========================================================
+   EXCEL / DYNAMIC COLUMN FIELDS
+   ========================================================== */
+
+.modal-box.modal-wide .edit-excel-fields {
+  width: 100%;
+
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+
+  gap: 14px 16px;
+
+  box-sizing: border-box;
+}
+
+.modal-box.modal-wide .edit-excel-fields > * {
+  width: 100%;
+  min-width: 0;
+
+  box-sizing: border-box;
+}
+
+/* Dynamic field card */
+.modal-box.modal-wide .edit-excel-fields .form-group,
+.modal-box.modal-wide .edit-excel-fields .excel-field,
+.modal-box.modal-wide .edit-excel-fields .column-field {
+  width: 100%;
+  min-width: 0;
+
+  box-sizing: border-box;
+}
+
+/* Column title */
+.modal-box.modal-wide .edit-excel-fields label,
+.modal-box.modal-wide .edit-excel-fields .field-label {
+  display: block;
+
+  width: 100%;
+
+  margin-bottom: 6px;
+
+  font-size: 13px;
+  font-weight: 600;
+
+  color: #1f2937;
+
+  text-align: left;
+
+  box-sizing: border-box;
+}
+
+/* Dynamic inputs */
+.modal-box.modal-wide .edit-excel-fields input,
+.modal-box.modal-wide .edit-excel-fields select,
+.modal-box.modal-wide .edit-excel-fields textarea {
+  width: 100%;
+  min-width: 0;
+  max-width: 100%;
+
+  height: 48px;
+
+  padding: 0 14px;
+
+  border: 1px solid #d9dee7;
+  border-radius: 8px;
+
+  box-sizing: border-box;
+
+  font-size: 14px;
+}
+
+/* ==========================================================
+   IF YOUR DYNAMIC FIELDS ARE DIRECT DIV ELEMENTS
+   ========================================================== */
+
+.modal-box.modal-wide .modal-body > div {
+  box-sizing: border-box;
+}
+
+.modal-box.modal-wide .modal-body input {
+  box-sizing: border-box;
+}
+
+/* ==========================================================
+   FORM ACTIONS
+   ========================================================== */
+
+.modal-box.modal-wide .form-actions {
+  width: 100%;
+
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+
+  gap: 10px;
+
+  padding-top: 8px;
+
+  box-sizing: border-box;
+}
+
+/* ==========================================================
+   SCROLLBAR
+   ========================================================== */
+
+.modal-box.modal-wide .modal-body::-webkit-scrollbar {
+  width: 7px;
+}
+
+.modal-box.modal-wide .modal-body::-webkit-scrollbar-track {
+  background: #f5f5f5;
+}
+
+.modal-box.modal-wide .modal-body::-webkit-scrollbar-thumb {
+  background: #c9cdd4;
+  border-radius: 10px;
+}
+
+.modal-box.modal-wide .modal-body::-webkit-scrollbar-thumb:hover {
+  background: #aeb3bb;
+}
+
+/* ==========================================================
+   TABLET
+   ========================================================== */
+
+@media (max-width: 768px) {
+
+  .modal-overlay {
+    padding: 12px;
+  }
+
+  .modal-box.modal-wide {
+    width: 96vw;
+    max-width: 96vw;
+    max-height: 94vh;
+  }
+
+  .modal-box.modal-wide .modal-body {
+    padding: 18px 20px 22px;
+  }
+
+  .modal-box.modal-wide .form-grid-2,
+  .modal-box.modal-wide .edit-excel-fields {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+}
+
+/* ==========================================================
+   MOBILE
+   ========================================================== */
+
+@media (max-width: 480px) {
+
+  .modal-overlay {
+    padding: 8px;
+  }
+
+  .modal-box.modal-wide {
+    width: 100%;
+    max-width: 100%;
+    max-height: 96vh;
+
+    border-radius: 10px;
+  }
+
+  .modal-box.modal-wide .modal-header {
+    padding: 13px 16px;
+  }
+
+  .modal-box.modal-wide .modal-body {
+    padding: 16px;
+  }
+
+  .modal-box.modal-wide .form-grid-2,
+  .modal-box.modal-wide .edit-excel-fields {
+    grid-template-columns: 1fr;
+  }
+
+  .modal-box.modal-wide .form-actions {
+    flex-direction: column-reverse;
+    align-items: stretch;
+  }
+
+  .modal-box.modal-wide .form-actions button {
+    width: 100%;
+  }
+}
+/* ---------- Reassign Flow ---------- */
+.reassign-flow {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 10px 12px;
+  background: var(--primary-pale);
+  border-radius: 8px;
+}
+.reassign-box {
+  font-weight: 700;
+  font-size: 15px;
+  color: var(--text-dark);
+}
+.reassign-arrow { font-size: 22px; color: var(--primary); }
+
+/* ---------- Edit Excel Options ---------- */
+.edit-excel-option {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 12px 14px;
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  cursor: pointer;
+  font-family: 'Public Sans', sans-serif;
+  transition: border-color 0.15s, background 0.15s;
+  width: 100%;
+  text-align: left;
+}
+.edit-excel-option:hover {
+  border-color: var(--primary);
+  background: var(--primary-pale);
+}
+.edit-excel-option svg { font-size: 18px; color: var(--primary); }
+.edit-excel-option .eo-title { font-weight: 600; font-size: 13px; color: var(--text-dark); }
+.edit-excel-option .eo-sub { font-size: 12px; color: var(--text-light); }
+
+/* ---------- Toast ---------- */
+.toast {
+  position: fixed;
+  bottom: 28px;
+  right: 28px;
+  z-index: 2000;
+  background: #1a1a2e;
+  color: var(--white);
+  padding: 12px 22px;
+  border-radius: 10px;
+  font-size: 13.5px;
+  font-weight: 600;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.2);
+  animation: slideUp 0.25s ease;
+  border-left: 4px solid var(--primary);
+}
+.toast-success { border-left-color: #15803d; }
+.toast-info { border-left-color: #2563eb; }
+.toast-error { border-left-color: #b91c1c; }
+
+@keyframes slideUp {
+  from { transform: translateY(16px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+/* ---------- Misc Helpers ---------- */
+.btn-icon {
+  margin-right: 4px;
+  font-size: 14px;
+  vertical-align: middle;
+}
+.btn-icon:only-child { margin-right: 0; }
+
+.muted-text {
+  font-size: 13px;
+  color: var(--text-mid);
+  line-height: 1.5;
+}
+
+.link-btn {
+  background: none;
+  border: none;
+  color: var(--primary);
+  font-weight: 600;
+  cursor: pointer;
+  text-decoration: underline;
+  padding: 0;
+  font-size: 13px;
+}
+.link-btn:hover { color: var(--primary-dark); }
+
+/* History rows */
+.history-row {
+  padding: 10px 12px;
+  background: #f7f7fb;
+  border-radius: 8px;
+  font-size: 13px;
+}
+
+/* Telecaller checklist inside modals */
+.tc-checklist {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  max-height: 180px;
+  overflow-y: auto;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 8px 10px;
+}
+.tc-check-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  color: var(--text-dark);
+}
+
+/* Distribution options (for future use) */
+.distribution-options {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin: 8px 0;
+}
+.distribution-option-card {
+  border: 2px solid var(--border);
+  border-radius: 10px;
+  padding: 14px 16px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  background: var(--white);
+  text-align: center;
+}
+.distribution-option-card:hover {
+  border-color: var(--primary);
+  background: var(--primary-pale);
+}
+.distribution-option-card.active {
+  border-color: var(--primary);
+  background: var(--primary-pale);
+  box-shadow: 0 0 0 3px rgba(123, 17, 19, 0.1);
+}
+.distribution-option-icon { font-size: 24px; color: var(--primary); margin-bottom: 6px; }
+.distribution-option-label { font-size: 13px; font-weight: 600; color: var(--text-dark); }
+.distribution-option-desc { font-size: 11px; color: var(--text-light); margin-top: 2px; }
+
+/* ---------- Responsive ---------- */
+@media (max-width: 1100px) {
+  .leads-bottom-cards {
+    grid-template-columns: 1fr 1fr;
+  }
+  .top-campaigns-card {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (max-width: 768px) {
+  .leads-bottom-cards {
+    grid-template-columns: 1fr;
+  }
+  .status-summary-card,
+  .quick-actions-card,
+  .top-campaigns-card {
+    grid-column: 1;
+  }
+
+  .leads-header {
+    flex-direction: column;
+    gap: 12px;
+  }
+  .header-actions {
+    width: 100%;
+    flex-wrap: wrap;
+  }
+
+  .filter-bar {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .search-wrap {
+    min-width: unset;
+  }
+  .filter-select {
+    width: 100%;
+    min-width: unset;
+  }
+
+  .stats-bar {
+    flex-direction: column;
+  }
+  .stat-chip {
+    min-width: unset;
+  }
+
+  .district-grid {
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    gap: 12px;
+  }
+  .district-card { padding: 20px 12px; }
+
+  .district-actions-grid {
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+  }
+
+  .form-grid-2 {
+    grid-template-columns: 1fr;
+  }
+
+  .district-summary-bar {
+    gap: 12px;
+    padding: 12px 16px;
+  }
+
+  .modal-box {
+    width: 95%;
+    max-width: 100%;
+  }
+  .modal-wide { max-width: 95%; }
+
+  .tc-detail-card {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .tc-detail-avatar { align-self: center; }
+}
+
+@media (max-width: 480px) {
+  .district-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+  }
+  .district-card { padding: 16px 10px; }
+  .district-card-icon { width: 44px; height: 44px; font-size: 20px; }
+  .district-card-name { font-size: 13px; }
+
+  .district-actions-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .table-toolbar {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .toolbar-right {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .leads-table {
+    font-size: 12px;
+    min-width: 600px;
+  }
+  .leads-table th,
+  .leads-table td {
+    padding: 6px 8px;
+  }
+
+  .pagination-bar {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 8px;
+  }
+  .page-nums { justify-content: center; }
+
+  .distribution-options {
+    grid-template-columns: 1fr;
+  }
+
+  .district-view-header {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .district-view-title { font-size: 17px; }
+}
+
+/* District Management Card - Single unified card */
+.district-management-card {
+  margin-bottom: 4px;
+}
+
+.district-management-card .district-actions-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 10px;
+}
+
+.district-management-card .da-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  padding: 14px 8px;
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  cursor: pointer;
+  font-family: 'Public Sans', sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text-mid);
+  transition: border-color 0.15s, background 0.15s, color 0.15s;
+}
+
+.district-management-card .da-btn:hover:not(:disabled) {
+  border-color: var(--primary);
+  background: var(--primary-pale);
+  color: var(--primary);
+}
+
+.district-management-card .da-btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.district-management-card .da-icon {
+  font-size: 20px;
+}
+
+/* Telecaller Panel - Separate card */
+.telecaller-panel {
+  margin-top: 0;
+}
+
+.telecaller-panel .tc-detail-card {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+
+.telecaller-panel .tc-detail-avatar {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: var(--primary);
+  color: var(--white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.telecaller-panel .tc-detail-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.telecaller-panel .tc-detail-name {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--text-dark);
+}
+
+.telecaller-panel .tc-detail-row {
+  font-size: 13px;
+  color: var(--text-mid);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.telecaller-panel .tc-detail-row svg {
+  font-size: 13px;
+  color: var(--text-light);
+}
+
+.telecaller-panel .badge-green-text {
+  color: #15803d;
+  font-weight: 600;
+}
+
+@media (max-width: 768px) {
+  .district-management-card .district-actions-grid {
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+  }
+  
+  .telecaller-panel .tc-detail-card {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  
+  .telecaller-panel .tc-detail-avatar {
+    align-self: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .district-management-card .district-actions-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+/* -------------------------------------------------------------------------- */
+/* District Statistics Modal Styles                                            */
+/* -------------------------------------------------------------------------- */
+
+.district-stats-modal {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  max-height: 80vh;
+  overflow-y: auto;
+  padding: 4px 0;
+}
+
+.stats-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 12px;
+  border-bottom: 2px solid var(--border);
+}
+
+.stats-header h3 {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--text-dark);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0;
+}
+
+.stats-header h3 svg {
+  color: var(--primary);
+}
+
+.stats-updated {
+  font-size: 12px;
+  color: var(--text-light);
+}
+
+/* KPI Grid */
+.kpi-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+}
+
+.kpi-card {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 16px;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  transition: transform 0.15s;
+}
+
+.kpi-card:hover {
+  transform: translateY(-2px);
+}
+
+.kpi-icon {
+  font-size: 28px;
+  flex-shrink: 0;
+}
+
+.kpi-content {
+  flex: 1;
+}
+
+.kpi-value {
+  font-size: 20px;
+  font-weight: 800;
+  color: var(--text-dark);
+  line-height: 1.2;
+}
+
+.kpi-label {
+  font-size: 11px;
+  color: var(--text-light);
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+}
+
+.kpi-subtext {
+  font-size: 11px;
+  color: var(--text-mid);
+  margin-top: 2px;
+}
+
+/* Progress Bar */
+.stats-progress {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 16px 20px;
+}
+
+.progress-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.progress-title {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-dark);
+}
+
+.progress-percent {
+  font-size: 18px;
+  font-weight: 800;
+  color: var(--primary);
+}
+
+.progress-bar {
+  width: 100%;
+  height: 10px;
+  background: #f3f4f6;
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--primary), #b91c1c);
+  border-radius: 20px;
+  transition: width 0.6s ease;
+}
+
+.progress-labels {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 6px;
+  font-size: 12px;
+  color: var(--text-mid);
+}
+
+/* Two Column Layout */
+.stats-two-column {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.stats-column {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* Stats Section */
+.stats-section {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 16px;
+}
+
+.stats-section h4 {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--text-dark);
+  margin: 0 0 12px 0;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--border);
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px 16px;
+}
+
+.stat-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 4px 0;
+}
+
+.stat-label {
+  font-size: 12.5px;
+  color: var(--text-mid);
+}
+
+.stat-value {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--text-dark);
+}
+
+/* Info Grid */
+.info-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.info-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 10px;
+  background: #f9fafb;
+  border-radius: 6px;
+}
+
+.info-icon {
+  font-size: 16px;
+  color: var(--primary);
+  flex-shrink: 0;
+}
+
+.info-item div {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  flex: 1;
+  min-width: 0;
+}
+
+.info-label {
+  font-size: 10px;
+  font-weight: 500;
+  color: var(--text-light);
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+}
+
+.info-value {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-dark);
+  word-break: break-word;
+}
+
+/* Status Distribution */
+.status-distribution {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.dist-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 13px;
+}
+
+.dist-row:nth-child(even) {
+  background: #f9fafb;
+}
+
+.dist-label {
+  color: var(--text-mid);
+}
+
+.dist-value {
+  font-weight: 700;
+  color: var(--text-dark);
+}
+
+/* Responsive */
+@media (max-width: 1100px) {
+  .kpi-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .stats-two-column {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .kpi-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .stats-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .info-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .stats-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+  }
+}
+
+@media (max-width: 480px) {
+  .kpi-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .kpi-card {
+    padding: 10px 14px;
+  }
+  
+  .kpi-value {
+    font-size: 17px;
+  }
+}
+
+
+/* =========================================
+   LEADS TABLE - FULL UPDATE VISIBILITY
+   ========================================= */
+
+.table-wrap {
+  width: 100%;
+  overflow-x: auto;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.leads-table {
+  border-collapse: separate;
+  border-spacing: 0;
+  width: max-content;
+  min-width: 100%;
+}
+
+/* Normal column cells */
+.leads-table .dyn-cell {
+  vertical-align: middle;
+  padding: 12px 14px;
+}
+
+/* UP1, UP2, UP3... update headers */
+.leads-table th.up-update-header {
+  min-width: 280px;
+  width: 300px;
+  max-width: 360px;
+  white-space: nowrap;
+  text-align: left;
+  padding: 14px;
+}
+
+/* Full update text */
+.leads-table td.up-update-cell {
+  min-width: 280px;
+  width: 300px;
+  max-width: 360px;
+  padding: 12px 14px;
+  vertical-align: top;
+  white-space: normal !important;
+  overflow: visible !important;
+  text-overflow: clip !important;
+}
+
+/* Actual text content */
+.leads-table .dyn-cell-content {
+  white-space: normal !important;
+  overflow: visible !important;
+  text-overflow: clip !important;
+  overflow-wrap: anywhere;
+  word-break: normal;
+  line-height: 1.6;
+  max-height: none !important;
+  display: block;
+  color: #172033;
+  font-size: 13px;
+}
+
+/* Keep UP update rows readable */
+.leads-table tbody tr {
+  height: auto;
+}
+
+.leads-table tbody tr td.up-update-cell {
+  height: auto;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+  .leads-table th.up-update-header,
+  .leads-table td.up-update-cell {
+    min-width: 240px;
+    width: 260px;
+    max-width: 300px;
+  }
+}

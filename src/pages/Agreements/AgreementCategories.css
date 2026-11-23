@@ -1,0 +1,73 @@
+/* src/pages/Agreements/AgreementCategories.css */
+.agt-page { padding: 24px; max-width: 1440px; margin: 0 auto; color: #1f2430; }
+.agt-header { display: flex; justify-content: space-between; align-items: flex-start; gap: 16px; margin-bottom: 18px; }
+.agt-title { font-size: 22px; margin: 0 0 4px; }
+.agt-sub { margin: 0; color: #5b6475; font-size: 14px; }
+.agt-error { display: flex; gap: 8px; align-items: center; background: #fdecec; color: #9b1c1c; border: 1px solid #f5c2c2; padding: 10px 14px; border-radius: 8px; margin-bottom: 14px; font-size: 14px; }
+.agt-layout { display: grid; grid-template-columns: 320px 1fr; gap: 20px; align-items: start; }
+.agt-group { font-size: 11px; letter-spacing: .08em; text-transform: uppercase; color: #7a8294; margin: 14px 0 8px; }
+.agt-group:first-child { margin-top: 0; }
+.agt-side { position: sticky; top: 16px; }
+.agt-cat { display: flex; gap: 12px; width: 100%; text-align: left; padding: 12px; margin-bottom: 8px; background: #fff; border: 1px solid #e1e5ee; border-radius: 10px; cursor: pointer; transition: border-color .15s, box-shadow .15s; }
+.agt-cat:hover { border-color: #b9c2d6; }
+.agt-cat.active { border-color: #8a1f2b; box-shadow: 0 0 0 2px rgba(138,31,43,.12); }
+.agt-cat-icon { flex: none; width: 34px; height: 34px; border-radius: 8px; background: #f6e9eb; color: #8a1f2b; display: grid; place-items: center; }
+.agt-cat-text { display: flex; flex-direction: column; gap: 2px; min-width: 0; }
+.agt-cat-text strong { font-size: 14px; }
+.agt-cat-text small { color: #6b7385; font-size: 12px; line-height: 1.35; }
+.agt-cat-text em { font-style: normal; font-size: 11px; color: #8a93a6; margin-top: 2px; }
+.agt-cat-text em.edited { color: #0d7a4b; }
+.agt-empty { color: #7a8294; font-size: 13px; }
+
+.agt-main { background: #fff; border: 1px solid #e1e5ee; border-radius: 12px; min-height: 480px; overflow: hidden; }
+.agt-placeholder { display: grid; place-items: center; gap: 10px; padding: 90px 20px; color: #8a93a6; text-align: center; }
+.agt-toolbar { display: flex; justify-content: space-between; align-items: center; gap: 12px; padding: 12px 16px; border-bottom: 1px solid #e9ecf3; flex-wrap: wrap; }
+.agt-toolbar-title { display: flex; align-items: center; gap: 10px; font-size: 16px; }
+.agt-dirty { font-size: 12px; color: #a15c00; background: #fff3dd; padding: 2px 8px; border-radius: 999px; }
+.agt-toolbar-actions { display: flex; gap: 8px; flex-wrap: wrap; }
+.agt-btn { display: inline-flex; align-items: center; gap: 6px; padding: 8px 14px; border-radius: 8px; border: 1px solid transparent; font-size: 13px; cursor: pointer; }
+.agt-btn.primary { background: #8a1f2b; color: #fff; }
+.agt-btn.primary:disabled { background: #cfa8ad; cursor: not-allowed; }
+.agt-btn.ghost { background: #fff; border-color: #d5dae6; color: #2a3142; }
+.agt-btn.ghost:disabled { opacity: .5; cursor: not-allowed; }
+.agt-format { display: flex; gap: 6px; padding: 8px 16px; background: #f7f8fb; border-bottom: 1px solid #e9ecf3; flex-wrap: wrap; }
+.agt-format button { background: #fff; border: 1px solid #d5dae6; border-radius: 6px; padding: 4px 10px; cursor: pointer; font-size: 13px; }
+.agt-fields { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; padding: 10px 16px; border-bottom: 1px solid #e9ecf3; }
+.agt-fields-label { font-size: 12px; color: #6b7385; margin-right: 4px; }
+.agt-chip { border: 1px dashed #b9c2d6; background: #fff; color: #3b4660; border-radius: 999px; padding: 3px 10px; font-size: 12px; cursor: pointer; }
+.agt-chip.used { border-style: solid; background: #eef6ff; border-color: #a9cdf5; }
+.agt-chip:disabled { opacity: .5; cursor: default; }
+.agt-warn { display: flex; gap: 10px; margin: 10px 16px 0; padding: 10px 12px; background: #fff8e6; border: 1px solid #f1d98f; border-radius: 8px; font-size: 13px; color: #6b4e00; }
+
+.agt-paper-wrap { position: relative; padding: 20px; background: #eef0f5; max-height: calc(100vh - 330px); min-height: 360px; overflow: auto; }
+.agt-loading { position: absolute; inset: 0; display: grid; place-items: center; background: rgba(255,255,255,.7); z-index: 2; color: #5b6475; }
+.agt-paper { background: #fff; max-width: 820px; margin: 0 auto; padding: 40px 48px; min-height: 600px; box-shadow: 0 2px 10px rgba(0,0,0,.12); font-family: 'Times New Roman', serif; font-size: 15px; line-height: 1.55; outline: none; }
+.agt-paper:focus { box-shadow: 0 2px 10px rgba(0,0,0,.12), 0 0 0 2px rgba(138,31,43,.25); }
+.agt-paper.readonly { cursor: default; }
+/* document styling (same class names the PDF engine uses) */
+.agt-paper .agreement-letterhead { border-bottom: 2px solid #8a1f2b; padding-bottom: 8px; margin-bottom: 16px; }
+.agt-paper .agreement-brand { font-size: 24px; font-weight: bold; color: #8a1f2b; }
+.agt-paper .agreement-brand span { display: block; font-size: 14px; color: #444; font-weight: normal; }
+.agt-paper .agreement-contact { font-size: 12px; color: #444; margin-top: 4px; }
+.agt-paper .agreement-title { text-align: center; font-size: 18px; margin: 10px 0 18px; }
+.agt-paper h3 { font-size: 16px; margin: 18px 0 6px; }
+.agt-paper h4 { font-size: 14.5px; margin: 12px 0 4px; }
+.agt-paper p { margin: 5px 0; text-align: justify; }
+.agt-paper ul { margin: 4px 0 8px 22px; }
+.agt-paper li.sub { margin-left: 22px; list-style: circle; }
+.agt-paper table.agreement-fee-table { border-collapse: collapse; width: 100%; margin: 10px 0 14px; }
+.agt-paper table.agreement-fee-table td { border: 1px solid #999; padding: 6px 10px; }
+.agt-paper table.agreement-fee-table caption { text-align: left; font-weight: bold; margin-bottom: 6px; }
+.agt-paper .agreement-signatures { display: flex; gap: 4%; margin-top: 40px; }
+.agt-paper .agreement-signature-block { flex: 1; }
+.agt-paper .agreement-signature-block p { margin: 3px 0; text-align: left; }
+
+.agt-toast { position: fixed; right: 20px; bottom: 20px; z-index: 50; background: #0d7a4b; color: #fff; padding: 10px 16px; border-radius: 8px; font-size: 14px; box-shadow: 0 6px 18px rgba(0,0,0,.2); }
+.agt-spin { animation: agt-rot 1s linear infinite; }
+@keyframes agt-rot { to { transform: rotate(360deg); } }
+
+@media (max-width: 980px) {
+  .agt-layout { grid-template-columns: 1fr; }
+  .agt-side { position: static; }
+  .agt-paper { padding: 24px 18px; }
+}

@@ -1,0 +1,40 @@
+/* src/pages/Districts/Districts.css */
+
+.districts-mini-stat {
+  background: #fff;
+  border: 1px solid #eef0f4;
+  border-radius: 12px;
+  padding: 16px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.dms-val {
+  font-size: 20px;
+  font-weight: 700;
+  color: #1a1a2e;
+}
+
+.dms-label {
+  font-size: 11.5px;
+  color: #8888aa;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+.districts-assign-row {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.districts-assign-row select {
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  padding: 7px 10px;
+  font-size: 12.5px;
+  font-family: 'Public Sans', sans-serif;
+  min-width: 160px;
+}
