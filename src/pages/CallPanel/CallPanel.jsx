@@ -549,7 +549,7 @@ const OutcomeModal = ({ lead, onClose, onSave }) => {
   );
 };
 
-const CallPanel = ({ onNavigate, isMobile = false, backendUrl = 'https://scanning-unused-dash.ngrok-free.dev' }) => {
+const CallPanel = ({ onNavigate, isMobile = false, backendUrl = 'https://crmbackend-5d2o.onrender.com' }) => {
   const [queue, setQueue] = useState(INITIAL_QUEUE);
   const [activeLead, setActiveLead] = useState(INITIAL_QUEUE[0]);
   const [callState, setCallState] = useState('idle');

@@ -8,7 +8,7 @@ export default defineConfig({
     proxy: {
       "/api": {
         target:
-          "https://scanning-unused-dash.ngrok-free.dev",
+          "https://crmbackend-5d2o.onrender.com",
         changeOrigin: true,
         secure: false,
         headers: {

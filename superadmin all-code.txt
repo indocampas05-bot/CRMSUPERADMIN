@@ -1,6 +1,6 @@
 ===== D:\CRM Main\crm-app (superadmin)\crm-app (superadmin)\crm-app (superadmin)\crm-app\.env =====
-VITE_API_BASE=https://scanning-unused-dash.ngrok-free.dev/api
-VITE_WS_URL=ws://scanning-unused-dash.ngrok-free.dev/api/ws
+VITE_API_BASE=https://crmbackend-5d2o.onrender.com/api
+VITE_WS_URL=ws://crmbackend-5d2o.onrender.com/api/ws
 
 ===== D:\CRM Main\crm-app (superadmin)\crm-app (superadmin)\crm-app (superadmin)\crm-app\package-lock.json =====
 {
@@ -3445,7 +3445,7 @@ export default defineConfig({
     proxy: {
       "/api": {
         target:
-          "https://scanning-unused-dash.ngrok-free.dev",
+          "https://crmbackend-5d2o.onrender.com",
         changeOrigin: true,
         secure: false,
         headers: {
@@ -3457,8 +3457,8 @@ export default defineConfig({
 });
 
 ===== D:\CRM Main\crm-app (superadmin)\crm-app (superadmin)\crm-app (superadmin)\crm-app\src\.env =====
-VITE_API_BASE=https://scanning-unused-dash.ngrok-free.dev/api
-VITE_WS_URL=ws://scanning-unused-dash.ngrok-free.dev/api/ws
+VITE_API_BASE=https://crmbackend-5d2o.onrender.com/api
+VITE_WS_URL=ws://crmbackend-5d2o.onrender.com/api/ws
 
 ===== D:\CRM Main\crm-app (superadmin)\crm-app (superadmin)\crm-app (superadmin)\crm-app\src\App.jsx =====
 // src/App.js
@@ -9258,7 +9258,7 @@ const OutcomeModal = ({ lead, onClose, onSave }) => {
   );
 };
 
-const CallPanel = ({ onNavigate, isMobile = false, backendUrl = 'https://scanning-unused-dash.ngrok-free.dev' }) => {
+const CallPanel = ({ onNavigate, isMobile = false, backendUrl = 'https://crmbackend-5d2o.onrender.com' }) => {
   const [queue, setQueue] = useState(INITIAL_QUEUE);
   const [activeLead, setActiveLead] = useState(INITIAL_QUEUE[0]);
   const [callState, setCallState] = useState('idle');
@@ -25026,7 +25026,7 @@ export default WorkTimings;
 
 const API_BASE =
   import.meta.env.VITE_API_BASE ||
-  'https://scanning-unused-dash.ngrok-free.dev/api';
+  'https://crmbackend-5d2o.onrender.com/api';
 
 const getToken = () => localStorage.getItem('token');
 
@@ -25126,7 +25126,7 @@ export default agreementAdminService;
 
 const API_BASE =
   import.meta.env.VITE_API_BASE ||
-  'https://scanning-unused-dash.ngrok-free.dev/api';
+  'https://crmbackend-5d2o.onrender.com/api';
 
 const authHeaders = (extra = {}) => {
   const token = localStorage.getItem('token');
@@ -25184,7 +25184,7 @@ export default agreementCategoryService;
 
 const API_BASE =
   import.meta.env.VITE_API_BASE ||
-  'https://scanning-unused-dash.ngrok-free.dev/api';
+  'https://crmbackend-5d2o.onrender.com/api';
 
 const REQUEST_TIMEOUT = 30000;
 
@@ -25616,7 +25616,7 @@ export const agreementService = {
 export default agreementService;
 
 ===== D:\CRM Main\crm-app (superadmin)\crm-app (superadmin)\crm-app (superadmin)\crm-app\src\services\api.js =====
-const API_BASE = import.meta.env.VITE_API_BASE || 'https://scanning-unused-dash.ngrok-free.dev/api';
+const API_BASE = import.meta.env.VITE_API_BASE || 'https://crmbackend-5d2o.onrender.com/api';
 const request = async (endpoint, options = {}) => {
   const token = localStorage.getItem('token');
   const headers = {
@@ -25695,7 +25695,7 @@ export const api = {
 export default api;
 
 ===== D:\CRM Main\crm-app (superadmin)\crm-app (superadmin)\crm-app (superadmin)\crm-app\src\services\attendanceAdminService.js =====
-const API_BASE=import.meta.env.VITE_API_BASE||'https://scanning-unused-dash.ngrok-free.dev/api';
+const API_BASE=import.meta.env.VITE_API_BASE||'https://crmbackend-5d2o.onrender.com/api';
 const request=async(endpoint,options={})=>{const token=localStorage.getItem('token');const headers={'Content-Type':'application/json','ngrok-skip-browser-warning':'true',...(options.headers||{})};if(token)headers.Authorization=`Bearer ${token}`;const r=await fetch(`${API_BASE}${endpoint}`,{...options,headers});if(!r.ok){const e=await r.json().catch(()=>({}));throw new Error(e.message||e.error||`API error: ${r.status}`)}return r.status===204?null:r.json()};
 export default {list:(date)=>request(`/attendance/admin?date=${encodeURIComponent(date)}`),detail:id=>request(`/attendance/admin/${id}`),update:(id,data)=>request(`/attendance/admin/${id}`,{method:'PUT',body:JSON.stringify(data)}),sessions:id=>request(`/attendance/admin/${id}/sessions`),audits:id=>request(`/attendance/admin/${id}/audits`)};
 
@@ -25715,7 +25715,7 @@ export default calendarService;
 ===== D:\CRM Main\crm-app (superadmin)\crm-app (superadmin)\crm-app (superadmin)\crm-app\src\services\communicationService.js =====
 const API_BASE =
   import.meta.env.VITE_API_BASE ||
-  'https://scanning-unused-dash.ngrok-free.dev/api';
+  'https://crmbackend-5d2o.onrender.com/api';
 
 const BASE =
   `${API_BASE}/communications`;
@@ -25983,7 +25983,7 @@ export default communicationService;
 ===== D:\CRM Main\crm-app (superadmin)\crm-app (superadmin)\crm-app (superadmin)\crm-app\src\services\dashboardService.js =====
 const API_BASE =
   import.meta.env.VITE_API_BASE ||
-  "https://scanning-unused-dash.ngrok-free.dev/api";
+  "https://crmbackend-5d2o.onrender.com/api";
 
 async function request(path) {
   const token = localStorage.getItem("token");
@@ -26019,7 +26019,7 @@ export const dashboardService = {
 ===== D:\CRM Main\crm-app (superadmin)\crm-app (superadmin)\crm-app (superadmin)\crm-app\src\services\invoiceAssetService.js =====
 const API_BASE =
   import.meta.env.VITE_API_BASE ||
-  'https://scanning-unused-dash.ngrok-free.dev/api';
+  'https://crmbackend-5d2o.onrender.com/api';
 
 const headers = () => {
   const token = localStorage.getItem('token');
@@ -26076,7 +26076,7 @@ export default {
 
 ===== D:\CRM Main\crm-app (superadmin)\crm-app (superadmin)\crm-app (superadmin)\crm-app\src\services\leadService.js =====
 // E:\crm-app(telecallers)\crm-app(telecallers)\crm-app\src\services\leadService.js
-const API_BASE = import.meta.env.VITE_API_BASE || 'https://scanning-unused-dash.ngrok-free.dev/api';
+const API_BASE = import.meta.env.VITE_API_BASE || 'https://crmbackend-5d2o.onrender.com/api';
 const getToken = () => localStorage.getItem('token');
 const apiCall = async (endpoint, options = {}) => {
   const token = getToken();
@@ -26177,7 +26177,7 @@ export default leadService;
 ===== D:\CRM Main\crm-app (superadmin)\crm-app (superadmin)\crm-app (superadmin)\crm-app\src\services\leavePermissionAdminService.js =====
 const API_BASE =
   import.meta.env.VITE_API_BASE ||
-  'https://scanning-unused-dash.ngrok-free.dev/api';
+  'https://crmbackend-5d2o.onrender.com/api';
 const request = async (endpoint, options = {}) => {
   const token = localStorage.getItem('token');
   const headers = {
@@ -26319,7 +26319,7 @@ export default {
 
 ===== D:\CRM Main\crm-app (superadmin)\crm-app (superadmin)\crm-app (superadmin)\crm-app\src\services\paymentAdminService.js =====
 // src/services/paymentAdminService.js
-const API_BASE = import.meta.env.VITE_API_BASE || 'https://scanning-unused-dash.ngrok-free.dev/api';
+const API_BASE = import.meta.env.VITE_API_BASE || 'https://crmbackend-5d2o.onrender.com/api';
 const getToken = () => localStorage.getItem('token');
 const authHeaders = (extra = {}) => {
   const token = getToken();
@@ -26396,7 +26396,7 @@ export default paymentService;
 // Super Admin visibility + approve/reject actions over every telecaller's
 // quotations. Mirrors the request/error-handling conventions already used
 // in leadService.js / superAdminService.js.
-const API_BASE = import.meta.env.VITE_API_BASE || 'https://scanning-unused-dash.ngrok-free.dev/api';
+const API_BASE = import.meta.env.VITE_API_BASE || 'https://crmbackend-5d2o.onrender.com/api';
 const getToken = () => localStorage.getItem('token');
 const authHeaders = (extra = {}) => {
   const token = getToken();
@@ -26475,7 +26475,7 @@ export const quotationAdminService = {
 export default quotationAdminService;
 
 ===== D:\CRM Main\crm-app (superadmin)\crm-app (superadmin)\crm-app (superadmin)\crm-app\src\services\quotationService.js =====
-const API_BASE = import.meta.env.VITE_API_BASE || 'https://scanning-unused-dash.ngrok-free.dev/api';
+const API_BASE = import.meta.env.VITE_API_BASE || 'https://crmbackend-5d2o.onrender.com/api';
 const getToken = () => localStorage.getItem('token');
 const authHeaders = (extra = {}) => {
   const token = getToken();
@@ -26592,7 +26592,7 @@ export const reportService = {
 
 ===== D:\CRM Main\crm-app (superadmin)\crm-app (superadmin)\crm-app (superadmin)\crm-app\src\services\superAdminService.js =====
 // src/services/superAdminService.js
-const API_BASE = import.meta.env.VITE_API_BASE || 'https://scanning-unused-dash.ngrok-free.dev/api';
+const API_BASE = import.meta.env.VITE_API_BASE || 'https://crmbackend-5d2o.onrender.com/api';
 const SUPER_ADMIN_API = `${API_BASE}/super-admin`;
 const getToken = () => localStorage.getItem('token');
 const request = async (endpoint, options = {}) => {
@@ -26677,7 +26677,7 @@ export const superAdminService = {
 
 ===== D:\CRM Main\crm-app (superadmin)\crm-app (superadmin)\crm-app (superadmin)\crm-app\src\services\telecallerService.js =====
 // src/services/telecallerService.js
-const API_BASE = import.meta.env.VITE_API_BASE || 'https://scanning-unused-dash.ngrok-free.dev/api';
+const API_BASE = import.meta.env.VITE_API_BASE || 'https://crmbackend-5d2o.onrender.com/api';
 const getToken = () => localStorage.getItem('token');
 const request = async (endpoint, options = {}) => {
   const token = getToken();
