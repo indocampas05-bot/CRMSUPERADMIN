@@ -1,6 +1,6 @@
 const API_BASE =
   import.meta.env.VITE_API_BASE ||
-  'https://crmbackend-5d2o.onrender.com';
+  'https://crmbackend-5d2o.onrender.com/api';
 const request = async (endpoint, options = {}) => {
   const token = localStorage.getItem('token');
   const headers = {

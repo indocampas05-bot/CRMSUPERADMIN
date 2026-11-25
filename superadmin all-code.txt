@@ -16616,6 +16616,24 @@ const withUpdateColumns = (baseColumns, leads) => {
   return [...baseColumns.slice(0, lastUp + 1), ...extra, ...baseColumns.slice(lastUp + 1)];
 };
 
+// Columns created by saving a call update (not part of the uploaded Excel) always go LAST:
+//   Excel columns  ->  Legacy Note / TC_NEXT_FOLLOWUP_NOTE  ->  UP1, UP2, UP3 ...
+const isCallNoteColumn = (name) =>
+  /^(legacy\s*note|tc[_\s-]*next[_\s-]*(re)?followup[_\s-]*note)$/i.test(String(name ?? '').trim());
+
+const updateColumnsLast = (columns) => {
+  const base = [];
+  const notes = [];
+  const ups = [];
+  (columns || []).forEach((c) => {
+    if (upNumber(c) !== null) ups.push(c);
+    else if (isCallNoteColumn(c)) notes.push(c);
+    else base.push(c);
+  });
+  ups.sort((a, b) => upNumber(a) - upNumber(b));
+  return [...base, ...notes, ...ups];
+};
+
 // The per-district column derivation now happens inside DistrictView.
 // We no longer rely on a global schema for the column list — see
 // getStoredSchema()/setStoredSchema() above, and the `columns` useMemo
@@ -17208,7 +17226,7 @@ const DistrictView = ({ districtName, districtObj, employees, onBack, onDistrict
 
     if (Array.isArray(schema) && schema.length > 0) {
       // Excel schema first, then one extra column for every UPn saved by telecallers.
-      return withUpdateColumns(schema, leads);
+      return updateColumnsLast(withUpdateColumns(schema, leads));
     }
 
     // Legacy fallback: derive ONLY from the JSON Excel records.
@@ -17228,7 +17246,7 @@ const DistrictView = ({ districtName, districtObj, employees, onBack, onDistrict
       });
     });
 
-    return withUpdateColumns(result, leads);
+    return updateColumnsLast(withUpdateColumns(result, leads));
   }, [leads, districtName]);
   const filtered = useMemo(() => leads.filter(l => {
     const q = search.toLowerCase().trim();
@@ -17438,7 +17456,9 @@ const DistrictView = ({ districtName, districtObj, employees, onBack, onDistrict
     };
     try {
       if (id) {
-        await leadService.updateLead(id, leadData);
+        // The backend looks leads up by the business leadId (e.g. SCH2611244248), not the Mongo _id.
+        const target = leads.find(l => l.id === id);
+        await leadService.updateLead(target?.leadId || id, leadData);
         showToast('Lead updated.');
       } else {
         await leadService.createLead(leadData);

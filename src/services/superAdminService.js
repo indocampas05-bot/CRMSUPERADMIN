@@ -1,5 +1,5 @@
 // src/services/superAdminService.js
-const API_BASE = import.meta.env.VITE_API_BASE || 'https://crmbackend-5d2o.onrender.com';
+const API_BASE = import.meta.env.VITE_API_BASE || 'https://crmbackend-5d2o.onrender.com/api';
 const SUPER_ADMIN_API = `${API_BASE}/super-admin`;
 const getToken = () => localStorage.getItem('token');
 const request = async (endpoint, options = {}) => {

@@ -1,5 +1,5 @@
 // E:\crm-app(telecallers)\crm-app(telecallers)\crm-app\src\services\leadService.js
-const API_BASE = import.meta.env.VITE_API_BASE || 'https://crmbackend-5d2o.onrender.com';
+const API_BASE = import.meta.env.VITE_API_BASE || 'https://crmbackend-5d2o.onrender.com/api';
 const getToken = () => localStorage.getItem('token');
 const apiCall = async (endpoint, options = {}) => {
   const token = getToken();
