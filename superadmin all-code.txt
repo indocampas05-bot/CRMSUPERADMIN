@@ -1,6 +1,15 @@
 ===== D:\CRM Main\crm-app (superadmin)\crm-app (superadmin)\crm-app (superadmin)\crm-app\.env =====
-VITE_API_BASE=https://crmbackend-5d2o.onrender.com/api
-VITE_WS_URL=ws://crmbackend-5d2o.onrender.com/api/ws
+VITE_API_BASE=https://crmbackend-5d2o.onrender.com
+VITE_WS_URL=ws://crmbackend-5d2o.onrender.com/ws
+
+===== D:\CRM Main\crm-app (superadmin)\crm-app (superadmin)\crm-app (superadmin)\crm-app\.gitignore =====
+
+node_modules
+
+node_modules
+
+node_modules
+node_modules
 
 ===== D:\CRM Main\crm-app (superadmin)\crm-app (superadmin)\crm-app (superadmin)\crm-app\package-lock.json =====
 {
@@ -17,6 +26,7 @@ VITE_WS_URL=ws://crmbackend-5d2o.onrender.com/api/ws
         "@emotion/styled": "^11.14.1",
         "@mui/icons-material": "^9.2.0",
         "@mui/material": "^9.2.0",
+        "html2canvas": "^1.4.1",
         "jspdf": "^4.2.1",
         "jspdf-autotable": "^5.0.8",
         "lucide-react": "^1.21.0",
@@ -1762,7 +1772,6 @@ VITE_WS_URL=ws://crmbackend-5d2o.onrender.com/api/ws
       "resolved": "https://registry.npmjs.org/base64-arraybuffer/-/base64-arraybuffer-1.0.2.tgz",
       "integrity": "sha512-I3yl4r9QB5ZRY3XuJVEPfc2XhZO6YweFPI+UovAzn+8/hb3oJ6lnysaFcjVpkCPfVWFUDvoZ8kmVDP7WyRtYtQ==",
       "license": "MIT",
-      "optional": true,
       "engines": {
         "node": ">= 0.6.0"
       }
@@ -1980,7 +1989,6 @@ VITE_WS_URL=ws://crmbackend-5d2o.onrender.com/api/ws
       "resolved": "https://registry.npmjs.org/css-line-break/-/css-line-break-2.1.0.tgz",
       "integrity": "sha512-FHcKFCZcAha3LwfVBhCQbW2nCNbkZXn7KVUJcsT5/P8YmfsVja0FMPJr0B903j/E69HUphKiV9iQArX8SDYA4w==",
       "license": "MIT",
-      "optional": true,
       "dependencies": {
         "utrie": "^1.0.2"
       }
@@ -2385,7 +2393,6 @@ VITE_WS_URL=ws://crmbackend-5d2o.onrender.com/api/ws
       "resolved": "https://registry.npmjs.org/html2canvas/-/html2canvas-1.4.1.tgz",
       "integrity": "sha512-fPU6BHNpsyIhr8yyMpTLLxAbkaK8ArIBcmZIRiBLiDhjeqvXolaEmDGmELFuX9I4xDcaKKcJl+TKZLqruBbmWA==",
       "license": "MIT",
-      "optional": true,
       "dependencies": {
         "css-line-break": "^2.1.0",
         "text-segmentation": "^1.0.3"
@@ -3187,7 +3194,6 @@ VITE_WS_URL=ws://crmbackend-5d2o.onrender.com/api/ws
       "resolved": "https://registry.npmjs.org/text-segmentation/-/text-segmentation-1.0.3.tgz",
       "integrity": "sha512-iOiPUo/BGnZ6+54OsWxZidGCsdU8YbE4PSpdPinp7DeMtUJNJBoJ/ouUSTJjHkh1KntHaltHl/gDs2FC4i5+Nw==",
       "license": "MIT",
-      "optional": true,
       "dependencies": {
         "utrie": "^1.0.2"
       }
@@ -3246,7 +3252,6 @@ VITE_WS_URL=ws://crmbackend-5d2o.onrender.com/api/ws
       "resolved": "https://registry.npmjs.org/utrie/-/utrie-1.0.2.tgz",
       "integrity": "sha512-1MLa5ouZiOmQzUbjbu9VmjLzn1QLXBhwpUa7kdLUQK+KQ5KA9I1vk5U4YHe/X2Ch7PYnJfWuWT+VbuxbGwljhw==",
       "license": "MIT",
-      "optional": true,
       "dependencies": {
         "base64-arraybuffer": "^1.0.2"
       }
@@ -3409,7 +3414,7 @@ VITE_WS_URL=ws://crmbackend-5d2o.onrender.com/api/ws
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
+    "build": "node ./node_modules/vite/bin/vite.js build",
     "preview": "vite preview"
   },
   "dependencies": {
@@ -3417,6 +3422,7 @@ VITE_WS_URL=ws://crmbackend-5d2o.onrender.com/api/ws
     "@emotion/styled": "^11.14.1",
     "@mui/icons-material": "^9.2.0",
     "@mui/material": "^9.2.0",
+    "html2canvas": "^1.4.1",
     "jspdf": "^4.2.1",
     "jspdf-autotable": "^5.0.8",
     "lucide-react": "^1.21.0",
@@ -3434,6 +3440,13 @@ VITE_WS_URL=ws://crmbackend-5d2o.onrender.com/api/ws
   }
 }
 
+===== D:\CRM Main\crm-app (superadmin)\crm-app (superadmin)\crm-app (superadmin)\crm-app\vercel.json =====
+{
+  "rewrites": [
+    { "source": "/(.*)", "destination": "/index.html" }
+  ]
+}
+
 ===== D:\CRM Main\crm-app (superadmin)\crm-app (superadmin)\crm-app (superadmin)\crm-app\vite.config.js =====
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
@@ -3445,7 +3458,7 @@ export default defineConfig({
     proxy: {
       "/api": {
         target:
-          "https://crmbackend-5d2o.onrender.com",
+          "https://scanning-unused-dash.ngrok-free.dev",
         changeOrigin: true,
         secure: false,
         headers: {
@@ -3456,9 +3469,14 @@ export default defineConfig({
   },
 });
 
+===== D:\CRM Main\crm-app (superadmin)\crm-app (superadmin)\crm-app (superadmin)\crm-app\.vscode\settings.json =====
+{
+    "git.ignoreLimitWarning": true
+}
+
 ===== D:\CRM Main\crm-app (superadmin)\crm-app (superadmin)\crm-app (superadmin)\crm-app\src\.env =====
-VITE_API_BASE=https://crmbackend-5d2o.onrender.com/api
-VITE_WS_URL=ws://crmbackend-5d2o.onrender.com/api/ws
+VITE_API_BASE=https://crmbackend-5d2o.onrender.com
+VITE_WS_URL=ws://crmbackend-5d2o.onrender.com/ws
 
 ===== D:\CRM Main\crm-app (superadmin)\crm-app (superadmin)\crm-app (superadmin)\crm-app\src\App.jsx =====
 // src/App.js
@@ -5211,11 +5229,11 @@ const adminMenuItems = [
     label: "Payments", 
     id: "payment",
   },
-  { 
-    icon: <FiRefreshCw />, 
-    label: "Follow-ups", 
-    id: "followups",
-  },
+  //{ 
+  //  icon: <FiRefreshCw />, 
+    //label: "Follow-ups", 
+  //  id: "followups",
+ // },
   {
   id: 'attendance',
   label: 'Attendance',
@@ -9258,7 +9276,7 @@ const OutcomeModal = ({ lead, onClose, onSave }) => {
   );
 };
 
-const CallPanel = ({ onNavigate, isMobile = false, backendUrl = 'https://crmbackend-5d2o.onrender.com' }) => {
+const CallPanel = ({ onNavigate, isMobile = false, backendUrl = 'https://scanning-unused-dash.ngrok-free.dev' }) => {
   const [queue, setQueue] = useState(INITIAL_QUEUE);
   const [activeLead, setActiveLead] = useState(INITIAL_QUEUE[0]);
   const [callState, setCallState] = useState('idle');
@@ -17339,7 +17357,10 @@ const DistrictView = ({ districtName, districtObj, employees, onBack, onDistrict
   const handleReplaceConfirm = async (file, preview) => {
     try {
       if (leads.length > 0) {
-        await leadService.deleteMultipleLeads(leads.map(l => l.id));
+        const res = await leadService.deleteMultipleLeads(leads.map(l => l.id));
+        if ((res?.deletedCount ?? 0) < leads.length) {
+          throw new Error('Could not delete all existing leads, so the new file was not imported.');
+        }
       }
       await handleImport(file, preview);
     } catch (e) {
@@ -17377,9 +17398,11 @@ const DistrictView = ({ districtName, districtObj, employees, onBack, onDistrict
     }
     if (!window.confirm(`Delete ${batchLeadIds.length} lead(s) imported from "${fileName}"?`)) return;
     try {
-      await leadService.deleteMultipleLeads(batchLeadIds);
+      const res = await leadService.deleteMultipleLeads(batchLeadIds);
+      const count = res?.deletedCount ?? 0;
       await refreshAll();
-      showToast(`Deleted ${batchLeadIds.length} leads from that upload.`, 'info');
+      if (count === 0) showToast('No leads were deleted.', 'error');
+      else showToast(`Deleted ${count} leads from that upload.`, 'info');
     } catch (e) {
       showToast('Delete failed: ' + e.message, 'error');
     }
@@ -17443,10 +17466,13 @@ const DistrictView = ({ districtName, districtObj, employees, onBack, onDistrict
   const handleDeleteSelected = async () => {
     if (!window.confirm(`Delete ${selected.length} selected leads?`)) return;
     try {
-      await leadService.deleteMultipleLeads(selected);
+      const res = await leadService.deleteMultipleLeads(selected);
+      const count = res?.deletedCount ?? 0;
+      const total = selected.length;
       setSelected([]);
       await refreshAll();
-      showToast(`${selected.length} leads deleted.`, 'info');
+      if (count === 0) showToast('No leads were deleted.', 'error');
+      else showToast(count === total ? `${count} leads deleted.` : `${count} of ${total} leads deleted.`, 'info');
     } catch (e) {
       showToast('Delete failed: ' + e.message, 'error');
     }
@@ -17462,10 +17488,11 @@ const DistrictView = ({ districtName, districtObj, employees, onBack, onDistrict
     });
     if (dupIds.length === 0) { showToast('No duplicates found.', 'info'); setShowEditExcel(false); return; }
     try {
-      await leadService.deleteMultipleLeads(dupIds);
+      const res = await leadService.deleteMultipleLeads(dupIds);
+      const count = res?.deletedCount ?? 0;
       await refreshAll();
       setShowEditExcel(false);
-      showToast(`Removed ${dupIds.length} duplicate lead(s).`);
+      showToast(`Removed ${count} duplicate lead(s).`);
     } catch (e) {
       showToast('Dedupe failed: ' + e.message, 'error');
     }
@@ -17935,8 +17962,6 @@ const Leads = () => {
 };
 
 export default Leads;
-
-
 
 ===== D:\CRM Main\crm-app (superadmin)\crm-app (superadmin)\crm-app (superadmin)\crm-app\src\pages\Leads\data\districts.js =====
 // All 38 Tamil Nadu districts — single source of truth for the Leads module.
@@ -22979,6 +23004,362 @@ const Permissions = ({ telecallers, onUpdate }) => {
 
 export default Permissions;
 
+===== D:\CRM Main\crm-app (superadmin)\crm-app (superadmin)\crm-app (superadmin)\crm-app\src\pages\Telecallers\TelecallerFollowUps.jsx =====
+// src/pages/Telecallers/TelecallerFollowUps.jsx
+// Super Admin: read-only view of every follow-up that belongs to ONE telecaller.
+import React, { useCallback, useEffect, useMemo, useState } from 'react';
+import {
+  FiX,
+  FiSearch,
+  FiRefreshCw,
+  FiDownload,
+  FiPhone,
+  FiClock,
+  FiCheckCircle,
+  FiAlertCircle,
+  FiCalendar,
+  FiXCircle,
+} from 'react-icons/fi';
+import { leadService } from '../../services/leadService';
+
+// ───────────────────────── helpers ─────────────────────────
+const pad = (n) => String(n).padStart(2, '0');
+
+const localToday = () => {
+  const d = new Date();
+  return `${d.getFullYear()}-${pad(d.getMonth() + 1)}-${pad(d.getDate())}`;
+};
+
+const firstValue = (...values) =>
+  values.find((v) => v !== undefined && v !== null && String(v).trim() !== '');
+
+const parseNotes = (lead) => {
+  const raw = lead?.notes;
+  if (raw && typeof raw === 'object' && !Array.isArray(raw)) return raw;
+  if (typeof raw === 'string' && raw.trim()) {
+    try {
+      const parsed = JSON.parse(raw);
+      return parsed && typeof parsed === 'object' ? parsed : { LEGACY_NOTE: raw };
+    } catch {
+      return { LEGACY_NOTE: raw };
+    }
+  }
+  return {};
+};
+
+// Accepts yyyy-MM-dd, yyyy-MM-ddTHH:mm, dd-MM-yyyy (and anything Date can parse).
+const toDateAndTime = (value) => {
+  if (!value) return { date: '', time: '' };
+  const raw = String(value).trim();
+
+  let m = raw.match(/^(\d{4})-(\d{2})-(\d{2})(?:[T ](\d{2}:\d{2}))?/);
+  if (m) return { date: `${m[1]}-${m[2]}-${m[3]}`, time: m[4] || '' };
+
+  m = raw.match(/^(\d{2})[-/](\d{2})[-/](\d{4})(?:[T ](\d{2}:\d{2}))?/);
+  if (m) return { date: `${m[3]}-${m[2]}-${m[1]}`, time: m[4] || '' };
+
+  const d = new Date(raw);
+  if (!Number.isNaN(d.getTime())) {
+    return {
+      date: `${d.getFullYear()}-${pad(d.getMonth() + 1)}-${pad(d.getDate())}`,
+      time: `${pad(d.getHours())}:${pad(d.getMinutes())}`,
+    };
+  }
+  return { date: '', time: '' };
+};
+
+const fmtDate = (d) => {
+  if (!d) return '--';
+  const [y, m, day] = d.split('-');
+  return y && m && day ? `${day}-${m}-${y}` : d;
+};
+
+const latestUpdate = (notes) => {
+  const ups = Object.entries(notes)
+    .filter(([k, v]) => /^UP\s*\d+$/i.test(k) && String(v ?? '').trim())
+    .sort((a, b) => Number(b[0].replace(/\D/g, '')) - Number(a[0].replace(/\D/g, '')));
+  return ups.length ? `${ups[0][0]}: ${ups[0][1]}` : '';
+};
+
+const VALID_STATUS = ['Completed', 'Missed', 'Cancelled'];
+
+const mapLeadToFollowUp = (lead) => {
+  const { date, time } = toDateAndTime(lead?.tcNextRefollowupDate);
+  if (!date) return null;
+
+  const notes = parseNotes(lead);
+  const excel = lead?.excelData && typeof lead.excelData === 'object' ? lead.excelData : {};
+  const savedStatus = String(notes.TC_NEXT_FOLLOWUP_STATUS || '');
+
+  return {
+    key: lead.leadId || lead.id,
+    leadId: lead.leadId || '--',
+    organization: String(firstValue(lead.school, lead.name, excel.School, excel.Organization, 'Unknown')),
+    contact: String(firstValue(lead.contactPerson, excel['Contact Person'], excel.Name, '--')),
+    mobile: String(firstValue(lead.mobile, lead.phoneNumber, excel['Phone Number'], '--')),
+    district: String(firstValue(lead.district, excel.District, '--')),
+    date,
+    time,
+    note: String(firstValue(notes.TC_NEXT_FOLLOWUP_NOTE, notes.tcNextRefollowupNote, 'Follow-up scheduled')),
+    status: VALID_STATUS.includes(savedStatus) ? savedStatus : 'Pending',
+    leadStatus: String(firstValue(lead.status, '--')),
+    lastUpdate: latestUpdate(notes),
+  };
+};
+
+// ───────────────────────── styles ─────────────────────────
+const S = {
+  overlay: {
+    position: 'fixed', inset: 0, backgroundColor: 'rgba(0,0,0,0.6)', display: 'flex',
+    alignItems: 'center', justifyContent: 'center', zIndex: 9999, padding: 20,
+  },
+  box: {
+    backgroundColor: '#fff', borderRadius: 16, width: '100%', maxWidth: 1180, maxHeight: '92vh',
+    display: 'flex', flexDirection: 'column', boxShadow: '0 20px 60px rgba(0,0,0,0.3)',
+  },
+  header: {
+    display: 'flex', justifyContent: 'space-between', alignItems: 'center',
+    padding: '18px 24px', borderBottom: '1px solid #f0f0f5', flexShrink: 0,
+  },
+  title: { fontSize: 18, fontWeight: 700, color: '#1e1e2f', margin: 0 },
+  sub: { fontSize: 13, color: '#6b7280', marginTop: 2 },
+  iconBtn: {
+    background: '#f5f6fa', border: 'none', width: 36, height: 36, borderRadius: 8,
+    cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center',
+  },
+  body: { padding: 20, overflow: 'auto' },
+  stats: { display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(130px, 1fr))', gap: 12, marginBottom: 16 },
+  statCard: (active, color) => ({
+    border: `2px solid ${active ? color : '#eef0f5'}`, borderRadius: 12, padding: '10px 14px',
+    background: active ? `${color}12` : '#fff', cursor: 'pointer', textAlign: 'left',
+  }),
+  statLabel: { fontSize: 12, color: '#6b7280', display: 'flex', alignItems: 'center', gap: 6 },
+  statValue: (color) => ({ fontSize: 24, fontWeight: 700, color, marginTop: 2 }),
+  toolbar: { display: 'flex', gap: 10, marginBottom: 14, flexWrap: 'wrap' },
+  search: {
+    flex: 1, minWidth: 220, display: 'flex', alignItems: 'center', gap: 8,
+    border: '1px solid #e5e7eb', borderRadius: 10, padding: '0 12px', background: '#fafafa',
+  },
+  searchInput: { border: 'none', outline: 'none', background: 'transparent', padding: '10px 0', width: '100%', fontSize: 14 },
+  btn: {
+    display: 'inline-flex', alignItems: 'center', gap: 6, border: '1px solid #e5e7eb',
+    background: '#fff', borderRadius: 10, padding: '0 14px', height: 40, cursor: 'pointer', fontSize: 14,
+  },
+  tableWrap: { overflowX: 'auto', border: '1px solid #eef0f5', borderRadius: 12 },
+  table: { width: '100%', borderCollapse: 'collapse', fontSize: 13.5 },
+  th: {
+    textAlign: 'left', padding: '10px 12px', background: '#f9fafb', color: '#6b7280', fontSize: 12,
+    textTransform: 'uppercase', letterSpacing: 0.4, whiteSpace: 'nowrap', borderBottom: '1px solid #eef0f5',
+  },
+  td: { padding: '10px 12px', borderBottom: '1px solid #f3f4f6', verticalAlign: 'top' },
+  badge: (bg, fg) => ({
+    display: 'inline-block', padding: '3px 10px', borderRadius: 999, fontSize: 12, fontWeight: 600,
+    background: bg, color: fg, whiteSpace: 'nowrap',
+  }),
+  empty: { padding: 40, textAlign: 'center', color: '#6b7280' },
+};
+
+const STATUS_COLORS = {
+  Pending: ['#fff7ed', '#c2410c'],
+  Completed: ['#ecfdf5', '#047857'],
+  Missed: ['#fef2f2', '#b91c1c'],
+  Cancelled: ['#f3f4f6', '#4b5563'],
+  Overdue: ['#fef2f2', '#b91c1c'],
+};
+
+// ───────────────────────── component ─────────────────────────
+const TelecallerFollowUps = ({ telecaller, onClose }) => {
+  const [rows, setRows] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState('');
+  const [search, setSearch] = useState('');
+  const [filter, setFilter] = useState('All');
+
+  const username = telecaller?.username;
+  const displayName = telecaller?.fullName || telecaller?.name || username;
+
+  const load = useCallback(async () => {
+    if (!username) {
+      setError('This telecaller has no username.');
+      setLoading(false);
+      return;
+    }
+    setLoading(true);
+    setError('');
+    try {
+      const data = await leadService.getTelecallerFollowUps(username);
+      const list = Array.isArray(data) ? data : [];
+      const mapped = list.map(mapLeadToFollowUp).filter(Boolean);
+      mapped.sort((a, b) =>
+        `${a.date}T${a.time || '00:00'}`.localeCompare(`${b.date}T${b.time || '00:00'}`));
+      setRows(mapped);
+    } catch (e) {
+      setError(e.message || 'Unable to load follow-ups.');
+      setRows([]);
+    } finally {
+      setLoading(false);
+    }
+  }, [username]);
+
+  useEffect(() => { load(); }, [load]);
+
+  const today = localToday();
+
+  const stats = useMemo(() => ({
+    total: rows.length,
+    pending: rows.filter((r) => r.status === 'Pending').length,
+    today: rows.filter((r) => r.date === today && r.status === 'Pending').length,
+    overdue: rows.filter((r) => r.date < today && r.status === 'Pending').length,
+    completed: rows.filter((r) => r.status === 'Completed').length,
+    missed: rows.filter((r) => r.status === 'Missed').length,
+  }), [rows, today]);
+
+  const visible = useMemo(() => {
+    let data = rows;
+    if (filter === 'Pending') data = data.filter((r) => r.status === 'Pending');
+    if (filter === 'Today') data = data.filter((r) => r.date === today && r.status === 'Pending');
+    if (filter === 'Overdue') data = data.filter((r) => r.date < today && r.status === 'Pending');
+    if (filter === 'Completed') data = data.filter((r) => r.status === 'Completed');
+    if (filter === 'Missed') data = data.filter((r) => r.status === 'Missed');
+
+    const q = search.trim().toLowerCase();
+    if (q) {
+      data = data.filter((r) =>
+        [r.organization, r.contact, r.mobile, r.leadId, r.district, r.note, r.lastUpdate]
+          .some((v) => String(v || '').toLowerCase().includes(q)));
+    }
+    return data;
+  }, [rows, filter, search, today]);
+
+  const exportCsv = () => {
+    const header = ['Lead ID', 'Organization', 'Contact', 'Mobile', 'District', 'Date', 'Time', 'Status', 'Note', 'Last Update'];
+    const esc = (v) => `"${String(v ?? '').replace(/"/g, '""')}"`;
+    const lines = [header.map(esc).join(',')].concat(
+      visible.map((r) => [r.leadId, r.organization, r.contact, r.mobile, r.district,
+        fmtDate(r.date), r.time, r.status, r.note, r.lastUpdate].map(esc).join(',')));
+    const blob = new Blob([lines.join('\n')], { type: 'text/csv;charset=utf-8;' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = `followups-${username}-${today}.csv`;
+    a.click();
+    URL.revokeObjectURL(url);
+  };
+
+  const cards = [
+    { key: 'All', label: 'Total', value: stats.total, color: '#4f46e5', icon: <FiCalendar size={13} /> },
+    { key: 'Pending', label: 'Pending', value: stats.pending, color: '#d97706', icon: <FiClock size={13} /> },
+    { key: 'Today', label: 'Today', value: stats.today, color: '#2563eb', icon: <FiPhone size={13} /> },
+    { key: 'Overdue', label: 'Overdue', value: stats.overdue, color: '#dc2626', icon: <FiAlertCircle size={13} /> },
+    { key: 'Completed', label: 'Completed', value: stats.completed, color: '#059669', icon: <FiCheckCircle size={13} /> },
+    { key: 'Missed', label: 'Missed', value: stats.missed, color: '#9333ea', icon: <FiXCircle size={13} /> },
+  ];
+
+  return (
+    <div style={S.overlay} onClick={onClose}>
+      <div style={S.box} onClick={(e) => e.stopPropagation()}>
+        <div style={S.header}>
+          <div>
+            <h2 style={S.title}>{displayName}'s Follow-ups</h2>
+            <div style={S.sub}>
+              @{username}
+              {telecaller?.districts?.length ? ` · ${telecaller.districts.join(', ')}` : ''}
+            </div>
+          </div>
+          <button style={S.iconBtn} onClick={onClose} aria-label="Close"><FiX size={18} /></button>
+        </div>
+
+        <div style={S.body}>
+          <div style={S.stats}>
+            {cards.map((c) => (
+              <button key={c.key} style={S.statCard(filter === c.key, c.color)} onClick={() => setFilter(c.key)}>
+                <div style={S.statLabel}>{c.icon} {c.label}</div>
+                <div style={S.statValue(c.color)}>{c.value}</div>
+              </button>
+            ))}
+          </div>
+
+          <div style={S.toolbar}>
+            <div style={S.search}>
+              <FiSearch size={16} color="#9ca3af" />
+              <input
+                style={S.searchInput}
+                placeholder="Search school, contact, phone, lead ID, note..."
+                value={search}
+                onChange={(e) => setSearch(e.target.value)}
+              />
+            </div>
+            <button style={S.btn} onClick={load} disabled={loading}>
+              <FiRefreshCw size={15} /> Refresh
+            </button>
+            <button style={S.btn} onClick={exportCsv} disabled={!visible.length}>
+              <FiDownload size={15} /> Export CSV
+            </button>
+          </div>
+
+          {loading && <div style={S.empty}>Loading follow-ups…</div>}
+
+          {!loading && error && (
+            <div style={{ ...S.empty, color: '#b91c1c' }}>
+              {error}
+              <div style={{ marginTop: 12 }}>
+                <button style={S.btn} onClick={load}>Try again</button>
+              </div>
+            </div>
+          )}
+
+          {!loading && !error && visible.length === 0 && (
+            <div style={S.empty}>
+              {rows.length === 0
+                ? 'No follow-ups scheduled for this telecaller yet.'
+                : 'No follow-ups match the current filter.'}
+            </div>
+          )}
+
+          {!loading && !error && visible.length > 0 && (
+            <div style={S.tableWrap}>
+              <table style={S.table}>
+                <thead>
+                  <tr>
+                    {['Lead ID', 'School / Organization', 'Contact', 'Phone', 'District', 'Follow-up On', 'Status', 'Note', 'Last Update'].map((h) => (
+                      <th key={h} style={S.th}>{h}</th>
+                    ))}
+                  </tr>
+                </thead>
+                <tbody>
+                  {visible.map((r) => {
+                    const overdue = r.status === 'Pending' && r.date < today;
+                    const [bg, fg] = STATUS_COLORS[overdue ? 'Overdue' : r.status] || STATUS_COLORS.Pending;
+                    return (
+                      <tr key={r.key}>
+                        <td style={S.td}>{r.leadId}</td>
+                        <td style={{ ...S.td, fontWeight: 600 }}>{r.organization}</td>
+                        <td style={S.td}>{r.contact}</td>
+                        <td style={S.td}>{r.mobile}</td>
+                        <td style={S.td}>{r.district}</td>
+                        <td style={{ ...S.td, whiteSpace: 'nowrap' }}>
+                          {fmtDate(r.date)}{r.time ? ` ${r.time}` : ''}
+                        </td>
+                        <td style={S.td}>
+                          <span style={S.badge(bg, fg)}>{overdue ? 'Overdue' : r.status}</span>
+                        </td>
+                        <td style={{ ...S.td, minWidth: 180 }}>{r.note}</td>
+                        <td style={{ ...S.td, minWidth: 200, color: '#6b7280' }}>{r.lastUpdate || '--'}</td>
+                      </tr>
+                    );
+                  })}
+                </tbody>
+              </table>
+            </div>
+          )}
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default TelecallerFollowUps;
+
 ===== D:\CRM Main\crm-app (superadmin)\crm-app (superadmin)\crm-app (superadmin)\crm-app\src\pages\Telecallers\TelecallerPerformanceDetails.jsx =====
 // src/pages/Telecallers/TelecallerPerformanceDetails.jsx
 import React, { useState, useMemo } from 'react';
@@ -23671,6 +24052,7 @@ import { telecallerService } from '../../services/telecallerService';
 import { superAdminService } from '../../services/superAdminService';
 import TelecallerPortal from './TelecallerPortal';
 import TelecallerPerformanceDetails from './TelecallerPerformanceDetails';
+import TelecallerFollowUps from './TelecallerFollowUps';
 import WorkTimings from './WorkTimings';
 import AddTelecaller from './AddTelecaller';
 
@@ -23712,6 +24094,7 @@ const Telecallers = () => {
   const [showAddModal, setShowAddModal] = useState(false);
   const [editingTelecaller, setEditingTelecaller] = useState(null);
   const [portalTelecaller, setPortalTelecaller] = useState(null);
+  const [followUpTelecaller, setFollowUpTelecaller] = useState(null);
   const [visiblePasswords, setVisiblePasswords] = useState({});
   const [selectedDistrict, setSelectedDistrict] = useState('All');
   const [selectedCategory, setSelectedCategory] = useState('All');
@@ -24196,6 +24579,9 @@ const Telecallers = () => {
                     <button className="tc-action-btn view-btn" onClick={() => setPortalTelecaller(t)}>
                       <FiEye /> View
                     </button>
+                    <button className="tc-action-btn view-btn" onClick={() => setFollowUpTelecaller(t)}>
+                      <FiClock /> Follow-ups
+                    </button>
                     <button className="tc-action-btn edit-btn" onClick={() => handleEditClick(t)}>
                       <FiEdit2 /> Edit
                     </button>
@@ -24276,6 +24662,14 @@ const Telecallers = () => {
         <TelecallerPortal
           telecaller={portalTelecaller}
           onClose={() => setPortalTelecaller(null)}
+        />
+      )}
+
+      {/* Telecaller Follow-ups Modal */}
+      {followUpTelecaller && (
+        <TelecallerFollowUps
+          telecaller={followUpTelecaller}
+          onClose={() => setFollowUpTelecaller(null)}
         />
       )}
     </div>
@@ -25026,7 +25420,7 @@ export default WorkTimings;
 
 const API_BASE =
   import.meta.env.VITE_API_BASE ||
-  'https://crmbackend-5d2o.onrender.com/api';
+  'https://crmbackend-5d2o.onrender.com';
 
 const getToken = () => localStorage.getItem('token');
 
@@ -25126,7 +25520,7 @@ export default agreementAdminService;
 
 const API_BASE =
   import.meta.env.VITE_API_BASE ||
-  'https://crmbackend-5d2o.onrender.com/api';
+  'https://crmbackend-5d2o.onrender.com';
 
 const authHeaders = (extra = {}) => {
   const token = localStorage.getItem('token');
@@ -25184,7 +25578,7 @@ export default agreementCategoryService;
 
 const API_BASE =
   import.meta.env.VITE_API_BASE ||
-  'https://crmbackend-5d2o.onrender.com/api';
+  'https://crmbackend-5d2o.onrender.com';
 
 const REQUEST_TIMEOUT = 30000;
 
@@ -25616,7 +26010,7 @@ export const agreementService = {
 export default agreementService;
 
 ===== D:\CRM Main\crm-app (superadmin)\crm-app (superadmin)\crm-app (superadmin)\crm-app\src\services\api.js =====
-const API_BASE = import.meta.env.VITE_API_BASE || 'https://crmbackend-5d2o.onrender.com/api';
+const API_BASE = import.meta.env.VITE_API_BASE || 'https://crmbackend-5d2o.onrender.com';
 const request = async (endpoint, options = {}) => {
   const token = localStorage.getItem('token');
   const headers = {
@@ -25695,7 +26089,7 @@ export const api = {
 export default api;
 
 ===== D:\CRM Main\crm-app (superadmin)\crm-app (superadmin)\crm-app (superadmin)\crm-app\src\services\attendanceAdminService.js =====
-const API_BASE=import.meta.env.VITE_API_BASE||'https://crmbackend-5d2o.onrender.com/api';
+const API_BASE=import.meta.env.VITE_API_BASE||'https://crmbackend-5d2o.onrender.com';
 const request=async(endpoint,options={})=>{const token=localStorage.getItem('token');const headers={'Content-Type':'application/json','ngrok-skip-browser-warning':'true',...(options.headers||{})};if(token)headers.Authorization=`Bearer ${token}`;const r=await fetch(`${API_BASE}${endpoint}`,{...options,headers});if(!r.ok){const e=await r.json().catch(()=>({}));throw new Error(e.message||e.error||`API error: ${r.status}`)}return r.status===204?null:r.json()};
 export default {list:(date)=>request(`/attendance/admin?date=${encodeURIComponent(date)}`),detail:id=>request(`/attendance/admin/${id}`),update:(id,data)=>request(`/attendance/admin/${id}`,{method:'PUT',body:JSON.stringify(data)}),sessions:id=>request(`/attendance/admin/${id}/sessions`),audits:id=>request(`/attendance/admin/${id}/audits`)};
 
@@ -25715,7 +26109,7 @@ export default calendarService;
 ===== D:\CRM Main\crm-app (superadmin)\crm-app (superadmin)\crm-app (superadmin)\crm-app\src\services\communicationService.js =====
 const API_BASE =
   import.meta.env.VITE_API_BASE ||
-  'https://crmbackend-5d2o.onrender.com/api';
+  'https://crmbackend-5d2o.onrender.com';
 
 const BASE =
   `${API_BASE}/communications`;
@@ -25983,7 +26377,7 @@ export default communicationService;
 ===== D:\CRM Main\crm-app (superadmin)\crm-app (superadmin)\crm-app (superadmin)\crm-app\src\services\dashboardService.js =====
 const API_BASE =
   import.meta.env.VITE_API_BASE ||
-  "https://crmbackend-5d2o.onrender.com/api";
+  "https://crmbackend-5d2o.onrender.com";
 
 async function request(path) {
   const token = localStorage.getItem("token");
@@ -26019,7 +26413,7 @@ export const dashboardService = {
 ===== D:\CRM Main\crm-app (superadmin)\crm-app (superadmin)\crm-app (superadmin)\crm-app\src\services\invoiceAssetService.js =====
 const API_BASE =
   import.meta.env.VITE_API_BASE ||
-  'https://crmbackend-5d2o.onrender.com/api';
+  'https://crmbackend-5d2o.onrender.com';
 
 const headers = () => {
   const token = localStorage.getItem('token');
@@ -26076,7 +26470,7 @@ export default {
 
 ===== D:\CRM Main\crm-app (superadmin)\crm-app (superadmin)\crm-app (superadmin)\crm-app\src\services\leadService.js =====
 // E:\crm-app(telecallers)\crm-app(telecallers)\crm-app\src\services\leadService.js
-const API_BASE = import.meta.env.VITE_API_BASE || 'https://crmbackend-5d2o.onrender.com/api';
+const API_BASE = import.meta.env.VITE_API_BASE || 'https://crmbackend-5d2o.onrender.com';
 const getToken = () => localStorage.getItem('token');
 const apiCall = async (endpoint, options = {}) => {
   const token = getToken();
@@ -26148,6 +26542,9 @@ export const leadService = {
     method: 'DELETE',
     body: JSON.stringify(ids),
   }),
+  // Super admin: every follow-up (lead with a next follow-up date) of one telecaller.
+  getTelecallerFollowUps: (username) =>
+    apiCall(`/leads/followups/telecaller/${encodeURIComponent(username)}`),
 };
 export const authService = {
   login: (username, password) => apiCall('/auth/login', {
@@ -26173,11 +26570,10 @@ export const authService = {
 };
 export default leadService;
 
-
 ===== D:\CRM Main\crm-app (superadmin)\crm-app (superadmin)\crm-app (superadmin)\crm-app\src\services\leavePermissionAdminService.js =====
 const API_BASE =
   import.meta.env.VITE_API_BASE ||
-  'https://crmbackend-5d2o.onrender.com/api';
+  'https://crmbackend-5d2o.onrender.com';
 const request = async (endpoint, options = {}) => {
   const token = localStorage.getItem('token');
   const headers = {
@@ -26319,7 +26715,7 @@ export default {
 
 ===== D:\CRM Main\crm-app (superadmin)\crm-app (superadmin)\crm-app (superadmin)\crm-app\src\services\paymentAdminService.js =====
 // src/services/paymentAdminService.js
-const API_BASE = import.meta.env.VITE_API_BASE || 'https://crmbackend-5d2o.onrender.com/api';
+const API_BASE = import.meta.env.VITE_API_BASE || 'https://crmbackend-5d2o.onrender.com';
 const getToken = () => localStorage.getItem('token');
 const authHeaders = (extra = {}) => {
   const token = getToken();
@@ -26396,7 +26792,7 @@ export default paymentService;
 // Super Admin visibility + approve/reject actions over every telecaller's
 // quotations. Mirrors the request/error-handling conventions already used
 // in leadService.js / superAdminService.js.
-const API_BASE = import.meta.env.VITE_API_BASE || 'https://crmbackend-5d2o.onrender.com/api';
+const API_BASE = import.meta.env.VITE_API_BASE || 'https://crmbackend-5d2o.onrender.com';
 const getToken = () => localStorage.getItem('token');
 const authHeaders = (extra = {}) => {
   const token = getToken();
@@ -26475,7 +26871,7 @@ export const quotationAdminService = {
 export default quotationAdminService;
 
 ===== D:\CRM Main\crm-app (superadmin)\crm-app (superadmin)\crm-app (superadmin)\crm-app\src\services\quotationService.js =====
-const API_BASE = import.meta.env.VITE_API_BASE || 'https://crmbackend-5d2o.onrender.com/api';
+const API_BASE = import.meta.env.VITE_API_BASE || 'https://crmbackend-5d2o.onrender.com';
 const getToken = () => localStorage.getItem('token');
 const authHeaders = (extra = {}) => {
   const token = getToken();
@@ -26592,7 +26988,7 @@ export const reportService = {
 
 ===== D:\CRM Main\crm-app (superadmin)\crm-app (superadmin)\crm-app (superadmin)\crm-app\src\services\superAdminService.js =====
 // src/services/superAdminService.js
-const API_BASE = import.meta.env.VITE_API_BASE || 'https://crmbackend-5d2o.onrender.com/api';
+const API_BASE = import.meta.env.VITE_API_BASE || 'https://crmbackend-5d2o.onrender.com';
 const SUPER_ADMIN_API = `${API_BASE}/super-admin`;
 const getToken = () => localStorage.getItem('token');
 const request = async (endpoint, options = {}) => {
@@ -26677,7 +27073,7 @@ export const superAdminService = {
 
 ===== D:\CRM Main\crm-app (superadmin)\crm-app (superadmin)\crm-app (superadmin)\crm-app\src\services\telecallerService.js =====
 // src/services/telecallerService.js
-const API_BASE = import.meta.env.VITE_API_BASE || 'https://crmbackend-5d2o.onrender.com/api';
+const API_BASE = import.meta.env.VITE_API_BASE || 'https://crmbackend-5d2o.onrender.com';
 const getToken = () => localStorage.getItem('token');
 const request = async (endpoint, options = {}) => {
   const token = getToken();

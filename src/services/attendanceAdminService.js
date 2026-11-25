@@ -1,3 +1,3 @@
-const API_BASE=import.meta.env.VITE_API_BASE||'https://crmbackend-5d2o.onrender.com/api';
+const API_BASE=import.meta.env.VITE_API_BASE||'https://crmbackend-5d2o.onrender.com';
 const request=async(endpoint,options={})=>{const token=localStorage.getItem('token');const headers={'Content-Type':'application/json','ngrok-skip-browser-warning':'true',...(options.headers||{})};if(token)headers.Authorization=`Bearer ${token}`;const r=await fetch(`${API_BASE}${endpoint}`,{...options,headers});if(!r.ok){const e=await r.json().catch(()=>({}));throw new Error(e.message||e.error||`API error: ${r.status}`)}return r.status===204?null:r.json()};
 export default {list:(date)=>request(`/attendance/admin?date=${encodeURIComponent(date)}`),detail:id=>request(`/attendance/admin/${id}`),update:(id,data)=>request(`/attendance/admin/${id}`,{method:'PUT',body:JSON.stringify(data)}),sessions:id=>request(`/attendance/admin/${id}/sessions`),audits:id=>request(`/attendance/admin/${id}/audits`)};

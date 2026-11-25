@@ -2,7 +2,7 @@
 // Super Admin visibility + approve/reject actions over every telecaller's
 // quotations. Mirrors the request/error-handling conventions already used
 // in leadService.js / superAdminService.js.
-const API_BASE = import.meta.env.VITE_API_BASE || 'https://crmbackend-5d2o.onrender.com/api';
+const API_BASE = import.meta.env.VITE_API_BASE || 'https://crmbackend-5d2o.onrender.com';
 const getToken = () => localStorage.getItem('token');
 const authHeaders = (extra = {}) => {
   const token = getToken();
